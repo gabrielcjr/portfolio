@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Carneiro Jr. | Software Engineer — Backend & Distributed Systems</title>
+  <meta name="description" content="Portfolio of Gabriel Carneiro Jr. — Software Engineer with 5+ years in tech & 3+ years delivering robust production backend systems with Python, FastAPI, Django, NestJS, and PHP.">
+  <meta name="keywords" content="Gabriel Carneiro Jr, Software Engineer, Backend Engineer, Python, FastAPI, Django, NestJS, PHP, Symfony, Microservices, Distributed Systems, Docker, Kubernetes">
+  <meta name="author" content="Gabriel Carneiro Jr.">
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gabrielcjr.github.io/">
+  <meta property="og:title" content="Gabriel Carneiro Jr. | Software Engineer — Backend & Distributed Systems">
+  <meta property="og:description" content="5+ years in tech with 3+ years delivering production backend systems, 15-20% performance gains, 20x latency reductions, and resilient microservices.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/71238933?v=4">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glowing Background & Grid Overlay -->
+  <div class="bg-ambient"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#hero" class="nav-brand" id="nav-brand-link">
+        <div class="brand-badge">GC</div>
+        <div class="brand-info">
+          <span class="brand-name">Gabriel Carneiro Jr.</span>
+          <span class="brand-title">Software Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#impact" class="nav-link">Impact</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#principles" class="nav-link">Philosophy</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button type="button" class="btn btn-secondary btn-sm" id="open-resume-btn">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span>View CV</span>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Let's Talk</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#impact" class="mobile-nav-link">Production Impact</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Featured Projects</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills & Stack</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience Timeline</a></li>
+      <li><a href="#principles" class="mobile-nav-link">Engineering Philosophy</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact & Hire</a></li>
+    </ul>
+    <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem;">
+      <button type="button" class="btn btn-secondary btn-sm" id="mobile-resume-btn" style="flex: 1;">View CV</button>
+      <a href="#contact" class="btn btn-primary btn-sm" style="flex: 1;">Let's Talk</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         Hero Section
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <!-- Badges -->
+            <div class="hero-tag-row">
+              <div class="status-pill">
+                <span class="status-dot"></span>
+                <span>Available for Engineering Roles & High-Impact Contracts</span>
+              </div>
+              <span class="hero-badge">⚡ Backend & Systems</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+              I build high-leverage <span class="gradient-text">backend systems</span> that scale, stay resilient, and cut costs.
+            </h1>
+
+            <!-- Description -->
+            <p class="hero-description">
+              <span class="hero-highlight">5+ years in tech</span> with <span class="hero-highlight">3+ years delivering production systems</span> across <span class="hero-highlight">Python, FastAPI, Django, NestJS, and PHP</span>. Specialized in microservices, event-driven task queues, measurable <span class="hero-highlight">15–20% performance gains</span>, and cost-controlled AI integrations.
+            </p>
+
+            <!-- Actions -->
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary" id="hero-explore-projects-btn">
+                <span>Explore Featured Projects</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </a>
+              <button type="button" class="btn btn-secondary" id="hero-view-cv-btn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span>Full Resume / CV</span>
+              </button>
+            </div>
+
+            <!-- Social Links -->
+            <div class="hero-socials">
+              <a href="https://github.com/gabrielcjr" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub - @gabrielcjr">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/in/gabriel-carneiro-jr" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn - Gabriel Carneiro Jr.">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                </svg>
+              </a>
+              <a href="mailto:gabrielcjr4@gmail.com" class="social-link" title="Email - gabrielcjr4@gmail.com">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </a>
+              <a href="https://wa.me/5575992762777" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp - +5575992762777">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.155.57 4.178 1.564 5.926l-1.664 6.074 6.24-1.636c1.71.956 3.687 1.507 5.795 1.507 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Visual: Real-Time Architecture Code Terminal -->
+          <div class="hero-visual">
+            <div class="terminal-card">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-yellow"></span>
+                  <span class="dot dot-green"></span>
+                </div>
+                <span class="terminal-title">gabriel_systems_core.py</span>
+                <span class="terminal-badge">PROD • 99.99%</span>
+              </div>
+              <div class="terminal-body">
+                <div class="code-line">
+                  <span class="line-num">1</span>
+                  <span><span class="code-keyword">from</span> fastapi <span class="code-keyword">import</span> FastAPI, Depends, BackgroundTasks</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">2</span>
+                  <span><span class="code-keyword">from</span> core.resilience <span class="code-keyword">import</span> CircuitBreaker, IdempotentTask</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">3</span>
+                  <span></span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">4</span>
+                  <span><span class="code-comment"># Engineer with 5+ yrs tech, 3+ yrs production systems</span></span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">5</span>
+                  <span><span class="code-keyword">async def</span> <span class="code-func">scale_system_throughput</span>(service: Service):</span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">6</span>
+                  <span>&nbsp;&nbsp;perf_gain = <span class="code-keyword">await</span> service.optimize_queries() <span class="code-comment"># +20%</span></span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">7</span>
+                  <span>&nbsp;&nbsp;latency = <span class="code-keyword">await</span> service.apply_caching() <span class="code-comment"># 20x drop</span></span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">8</span>
+                  <span>&nbsp;&nbsp;tokens = <span class="code-keyword">await</span> service.guard_ai_flags() <span class="code-comment"># 0% waste</span></span>
+                </div>
+                <div class="code-line">
+                  <span class="line-num">9</span>
+                  <span>&nbsp;&nbsp;<span class="code-keyword">return</span> {<span class="code-str">"status"</span>: <span class="code-str">"optimal"</span>, <span class="code-str">"roi"</span>: <span class="code-num">1.9</span>}</span>
+                </div>
+
+                <div class="terminal-highlight-box">
+                  <span class="terminal-badge">🚀 Benchmark: 20x Latency Drop & zero AI token leaks</span>
+                  <span class="terminal-status">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Validated
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Quantifiable Production Impact & Metrics
+         ========================================================================== -->
+    <section class="section metrics-section" id="impact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Measurable Business ROI</span>
+          <h2 class="section-title">Code That Moves Key Business Metrics</h2>
+          <p class="section-subtitle">
+            I don't just write code — I optimize query plans, prevent infrastructure waste, eliminate manual processes, and guarantee system reliability.
+          </p>
+        </div>
+
+        <div class="metrics-grid">
+          <!-- Metric 1 -->
+          <div class="metric-card">
+            <div class="metric-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="metric-value gradient-text">+15–20%</div>
+            <div class="metric-label">Server Performance Gain</div>
+            <p class="metric-description">
+              Achieved via runtime, dependency, and framework modernization on production Python/Django sales applications.
+            </p>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="metric-card">
+            <div class="metric-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="metric-value gradient-text-cyan">20x Faster</div>
+            <div class="metric-label">Endpoint Latency Reduction</div>
+            <p class="metric-description">
+              Fixed heavy pagination bottlenecks and implemented custom parameter-based Doctrine result-caching.
+            </p>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="metric-card">
+            <div class="metric-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div class="metric-value gradient-text-emerald">90–100%</div>
+            <div class="metric-label">Manual Ops Automated</div>
+            <p class="metric-description">
+              Eliminated manual challenge grading via AI webhooks, and automated diploma credential life cycles.
+            </p>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="metric-card">
+            <div class="metric-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <div class="metric-value" style="color: #fbbf24;">0% Waste</div>
+            <div class="metric-label">AI Token Cost Guardrails</div>
+            <p class="metric-description">
+              Engineered granular feature flags in Python/Django preventing 100% of unwanted AI API token spend on disabled courses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Featured Projects (Case Studies)
+         ========================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineering Showcase</span>
+          <h2 class="section-title">Production-Grade Projects & Systems</h2>
+          <p class="section-subtitle">
+            Explore 3 featured systems demonstrating high-concurrency ingestion, dual-engine AI simulation, and scalable full-stack architectures.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT 1: DevATS (jobs_nestjs_react) -->
+          <article class="project-card" id="project-devats">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">High-Concurrency Ingestion & Job Engine</span>
+                  <span class="tag-badge highlight">600+ ATS Probed</span>
+                </div>
+                <h3 class="project-title">DevATS — Multi-ATS Job Ingestion Platform</h3>
+                <p class="project-summary">
+                  A high-throughput distributed crawler & developer-focused job board probing 600+ tech companies across Greenhouse, Lever, and Ashby concurrently without requiring API keys. Features live faceted query engine, sub-millisecond PostgreSQL index filtering, and a master-detail UI.
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Multi-ATS Slug Discovery:</strong> Heuristic slug generation stripping legal suffixes with concurrent 3-platform probing.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>100% Idempotent Upserts:</strong> Composite unique keys <code>(atsProvider, externalJobId)</code> with background worker queues.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Auto-Classification Pipeline:</strong> Regex-based role category, seniority, workplace inference, and 40+ tech tags extraction.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge">NestJS</span>
+                  <span class="tag-badge">FastAPI</span>
+                  <span class="tag-badge">PostgreSQL</span>
+                  <span class="tag-badge">Prisma ORM</span>
+                  <span class="tag-badge">React 19</span>
+                  <span class="tag-badge">TypeScript</span>
+                  <span class="tag-badge">Tailwind CSS</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('devats')">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                  <span>Architecture Deep Dive</span>
+                </button>
+                <a href="https://github.com/gabrielcjr/jobs_nestjs_react" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                  </svg>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>DATA FLOW & INGESTION PIPELINE</span>
+                  <span class="tag-badge">Async Prober</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">1</span>
+                    <div>
+                      <div class="arch-step-text">Candidate Slug Generation</div>
+                      <div class="arch-step-sub">629+ companies cleaned & mapped</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">2</span>
+                    <div>
+                      <div class="arch-step-text">Concurrent ATS Probe</div>
+                      <div class="arch-step-sub">Greenhouse / Lever / Ashby</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">3</span>
+                    <div>
+                      <div class="arch-step-text">Regex Normalization & Tagging</div>
+                      <div class="arch-step-sub">Roles, seniority, 40+ tech tags</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">4</span>
+                    <div>
+                      <div class="arch-step-text">PostgreSQL Array Ingestion</div>
+                      <div class="arch-step-sub">Fast faceted search & filtering</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: ATS MatchProof (Live on atsproof.website) -->
+          <article class="project-card featured-live" id="project-atsproof">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">AI-Powered Resume & ATS Intelligence</span>
+                  <div class="live-indicator">
+                    <span class="status-dot"></span>
+                    <span>Live in Production</span>
+                  </div>
+                </div>
+                <h3 class="project-title">ATS MatchProof — Dual-Engine ATS Simulator</h3>
+                <p class="project-summary">
+                  A high-speed, zero-account web application that compares PDF resumes against job descriptions with dual-engine AI scoring, skill gap detection, and instant bullet point optimization. Built with a strict privacy-first, zero-disk-storage in-memory stream processing model.
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Privacy-First In-Memory Parsing:</strong> Resumes parsed in volatile memory and never persisted to disk or database.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>FastAPI & HTMX Architecture:</strong> Instant reactive responses without heavy frontend client-side bloat.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Dual-AI Matching Engine:</strong> Real-time keyword scoring, experience alignment, and actionable bullet rewrite generation.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge highlight">FastAPI</span>
+                  <span class="tag-badge">Python</span>
+                  <span class="tag-badge">HTMX</span>
+                  <span class="tag-badge">Tailwind CSS</span>
+                  <span class="tag-badge">AI / LLM Integration</span>
+                  <span class="tag-badge">In-Memory PDF</span>
+                  <span class="tag-badge">Bilingual (EN/PT)</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <a href="https://atsproof.website/" target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  <span>Launch Live App (atsproof.website)</span>
+                </a>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="window.app.openProjectModal('atsproof')">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                  <span>Architecture Deep Dive</span>
+                </button>
+                <a href="https://github.com/gabrielcjr/atsproof" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>ATS DUAL-ENGINE WORKFLOW</span>
+                  <span class="tag-badge" style="color: #34d399;">Zero Storage</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">1</span>
+                    <div>
+                      <div class="arch-step-text">Multipart Stream Ingestion</div>
+                      <div class="arch-step-sub">PDF decoded in-memory bytes</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">2</span>
+                    <div>
+                      <div class="arch-step-text">Dual-Engine AI Benchmark</div>
+                      <div class="arch-step-sub">Skill density vs Job Description</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">3</span>
+                    <div>
+                      <div class="arch-step-text">Instant Bullet Rewriter</div>
+                      <div class="arch-step-sub">Generates optimized impact points</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">4</span>
+                    <div>
+                      <div class="arch-step-text">Reactive HTMX Fragment Render</div>
+                      <div class="arch-step-sub">Zero frontend build step needed</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: AMAE (Missionary & Financial Ledger Platform) -->
+          <article class="project-card" id="project-amae">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">Financial Ledger & Field Tracking SSR</span>
+                  <span class="tag-badge">Clean Architecture</span>
+                </div>
+                <h3 class="project-title">AMAE — Financial Ledger & Operations Platform</h3>
+                <p class="project-summary">
+                  A production-grade, server-side rendered (SSR) web application connecting financial sponsors with field missionaries across Brazil. Automates recurring financial adoptions, tracks mission-field coordinates with geocoding, and generates on-the-fly financial receipt PDFs.
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Decoupled Django Domain Modules:</strong> Isolated apps (<code>missions</code>, <code>finance</code>, <code>pages</code>) following clean architecture.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Automated Adoption Ledger:</strong> Multi-relational income/expense transactions with dynamic calculation rules.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>High-Fidelity Automated Tests:</strong> Comprehensive Pytest test suite covering domain validations and statements.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge">Python</span>
+                  <span class="tag-badge">Django</span>
+                  <span class="tag-badge">PostgreSQL</span>
+                  <span class="tag-badge">HTMX 2.0</span>
+                  <span class="tag-badge">Tailwind CSS 4</span>
+                  <span class="tag-badge">Pytest</span>
+                  <span class="tag-badge">PDF Generation</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('amae')">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                  <span>Architecture Deep Dive</span>
+                </button>
+                <a href="https://github.com/gabrielcjr/amae" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                  </svg>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>DOMAIN ENTITY RELATIONSHIPS</span>
+                  <span class="tag-badge">Django 6.0</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">1</span>
+                    <div>
+                      <div class="arch-step-text">Investor ➔ Adoption Pipeline</div>
+                      <div class="arch-step-sub">Sponsors linked to missionary fields</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">2</span>
+                    <div>
+                      <div class="arch-step-text">Geocoded Location Mapping</div>
+                      <div class="arch-step-sub">Latitude/Longitude coordinate tracking</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">3</span>
+                    <div>
+                      <div class="arch-step-text">Double-Entry Financial Ledger</div>
+                      <div class="arch-step-sub">Income/expense category balances</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">4</span>
+                    <div>
+                      <div class="arch-step-text">On-The-Fly PDF Statements</div>
+                      <div class="arch-step-sub">Automated monthly audit statements</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Interactive Skills Matrix (Categorized + Filterable)
+         ========================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Competencies</span>
+          <h2 class="section-title">Production Skills & Ecosystem</h2>
+          <p class="section-subtitle">
+            Battle-tested technologies used in production systems to build microservices, event-driven pipelines, secure APIs, and cloud infrastructure.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="skills-controls">
+          <button class="filter-btn active" data-category="all">All Disciplines</button>
+          <button class="filter-btn" data-category="frameworks">Backend Frameworks</button>
+          <button class="filter-btn" data-category="languages">Languages</button>
+          <button class="filter-btn" data-category="cloud-devops">Cloud & DevOps</button>
+          <button class="filter-btn" data-category="databases">Databases & Storage</button>
+          <button class="filter-btn" data-category="architecture">Architecture & AI</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid" id="skills-container">
+
+          <!-- Card 1: Frameworks & Runtimes (Includes FastAPI prominently) -->
+          <div class="skill-category-card" data-category="frameworks">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Frameworks & Runtimes</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip featured-fastapi" title="High-performance async Python APIs">
+                <span class="skill-chip-dot"></span>
+                <strong>FastAPI</strong>
+              </span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Django</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Nest.js</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Symfony</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Node.js</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>React</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>HTMX</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Core Languages -->
+          <div class="skill-category-card" data-category="languages">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Languages</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Python</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>TypeScript</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>JavaScript</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>PHP</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>SQL</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Cloud & DevOps -->
+          <div class="skill-category-card" data-category="cloud-devops">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Cloud & DevOps</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Docker</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Kubernetes (GKE)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>GitHub Actions</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>AWS EC2 / Lambda</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>GCP Engine</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>CI/CD Pipelines</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Nginx Gateway</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Databases & Caching -->
+          <div class="skill-category-card" data-category="databases">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Databases & Storage</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>PostgreSQL</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>MySQL</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Redis (Caching)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Prisma ORM</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Doctrine ORM</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Architecture & Distributed Systems -->
+          <div class="skill-category-card" data-category="architecture">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Architecture & Systems</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Microservices</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Event-Driven Systems</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>RESTful APIs</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Celery Task Queues</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Clean Architecture</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Testing & AI Integration -->
+          <div class="skill-category-card" data-category="architecture">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Testing & AI Tooling</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Pytest & pytest-xdist</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Unit & E2E Testing</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>LLM / RAG Pipelines</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>OpenAI & Claude APIs</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>HubSpot Webhook Sync</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>TDD Workflow</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Production Experience Timeline (Full Cycle)
+         ========================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Career History</span>
+          <h2 class="section-title">Production Engineering Experience</h2>
+          <p class="section-subtitle">
+            5+ years in the tech ecosystem with 3+ years delivering mission-critical backend features, legacy system modernization, and automated infrastructure at Full Cycle.
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+
+          <!-- Role 1: Full Stack Engineer (Jul 2025 - Present) -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Full Stack Engineer</h3>
+                  <div class="timeline-company">Full Cycle • São Paulo, Brazil</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Jul 2025 – Present</span>
+                </div>
+              </div>
+
+              <div class="timeline-context">
+                <strong>Context:</strong> Full Cycle is a leading Brazilian software engineering company and developer-education platform focused on microservices and distributed systems. Built internal tooling and automated student-facing workflows.
+              </div>
+
+              <ul class="timeline-achievements">
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Accelerated page section setup by 90%</strong> by engineering reusable Python/Django admin mixins for instant deep-cloning of multi-relational sections.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Prevented 100% of unwanted AI API token consumption</strong> on disabled courses by engineering granular feature flags in Python/Django with admin controls.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Eliminated 100% of manual work</strong> by automating challenge evaluations with a PHP/Symfony webhook integration to an AI microservice.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Cut manual administrative effort by 90%</strong> with a PHP/Symfony API automating diploma credential lifecycles.</span>
+                </li>
+              </ul>
+
+              <div class="timeline-tech-tags">
+                <span class="tag-badge">Python</span>
+                <span class="tag-badge">Django</span>
+                <span class="tag-badge">PHP / Symfony</span>
+                <span class="tag-badge">AI Microservices</span>
+                <span class="tag-badge">Docker</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 2: Full Stack Engineer (Jul 2024 - Jun 2025) -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Full Stack Engineer</h3>
+                  <div class="timeline-company">Full Cycle • São Paulo, Brazil</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Jul 2024 – Jun 2025</span>
+                </div>
+              </div>
+
+              <div class="timeline-context">
+                <strong>Context:</strong> Focused on performance and infrastructure reliability — upgrading and modernizing legacy Python/Django systems, optimizing database queries and CI/CD pipelines, and reducing infrastructure costs.
+              </div>
+
+              <ul class="timeline-achievements">
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Increased server performance by 15%</strong> through runtime, framework, and dependency upgrades to a production Python/Django sales application.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Reduced CI/CD pipeline feedback time by 20%</strong> by parallelizing test execution with Python/Django <code>pytest-xdist</code> in Docker.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Decreased an endpoint's response time by 20x</strong>, identifying and resolving a critical pagination query bottleneck in PHP/Symfony.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Cut infrastructure costs</strong> by eliminating an always-on worker pod, building a PHP/Symfony API that serves student progress on demand.</span>
+                </li>
+              </ul>
+
+              <div class="timeline-tech-tags">
+                <span class="tag-badge">Python</span>
+                <span class="tag-badge">Django</span>
+                <span class="tag-badge">pytest-xdist</span>
+                <span class="tag-badge">PHP / Symfony</span>
+                <span class="tag-badge">Docker</span>
+                <span class="tag-badge">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 3: Backend Engineer (Jun 2023 - Jun 2024) -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Backend Engineer</h3>
+                  <div class="timeline-company">Full Cycle • São Paulo, Brazil</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Jun 2023 – Jun 2024</span>
+                </div>
+              </div>
+
+              <div class="timeline-context">
+                <strong>Context:</strong> Delivered backend features across Python/Django and PHP/Symfony while handling CRM integrations, asynchronous processing, and test infrastructure modernization.
+              </div>
+
+              <ul class="timeline-achievements">
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Hardened public attack surface:</strong> Removed 5 classes of exposed entry points (config, backup, source, dependency, CMS exploit paths) at the Nginx gateway.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Prevented sales lead loss from network failures</strong> by decoupling CRM sync into a Python/Django Celery task queue with automatic retries on Docker workers.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Cut manual sync-recovery effort by 90%</strong> with a PHP/Symfony HubSpot sync manager auto-listing failures with one-click admin retries.</span>
+                </li>
+                <li class="timeline-achievement">
+                  <svg class="achievement-icon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span><strong>Reduced student news-feed query latency up to 80%</strong> by caching complex multi-join chapter queries with a parameter-based Doctrine result cache.</span>
+                </li>
+              </ul>
+
+              <div class="timeline-tech-tags">
+                <span class="tag-badge">Nginx Gateway</span>
+                <span class="tag-badge">Celery Queues</span>
+                <span class="tag-badge">HubSpot API</span>
+                <span class="tag-badge">Doctrine Caching</span>
+                <span class="tag-badge">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Role 4: Software Analyst (Feb 2021 - May 2023) -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Software Analyst</h3>
+                  <div class="timeline-company">Full Cycle • São Paulo, Brazil</div>
+                </div>
+                <div class="timeline-meta">
+                  <span>Feb 2021 – May 2023</span>
+                </div>
+              </div>
+
+              <div class="timeline-context">
+                <strong>Context:</strong> Technical analysis, support, and troubleshooting of distributed software projects. Provided deep code analysis, error identification, and student mentorship across microservice architectures.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Education & Continuous Learning
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Academic Background</span>
+          <h2 class="section-title">Education & Specialized MBAs</h2>
+          <p class="section-subtitle">
+            A solid foundation combining software engineering, artificial intelligence, software architecture, and business administration.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          <!-- Edu 1 -->
+          <div class="education-card">
+            <div>
+              <div class="edu-institution">Full Cycle</div>
+              <h3 class="edu-degree">MBA in Software Engineering with AI</h3>
+              <p class="edu-field">Advanced AI Agent Architecture, LLM Systems & Distributed Computing</p>
+            </div>
+            <div class="edu-period">Jul 2025 – Sep 2026</div>
+          </div>
+
+          <!-- Edu 2 -->
+          <div class="education-card">
+            <div>
+              <div class="edu-institution">Full Cycle</div>
+              <h3 class="edu-degree">MBA - Arquitetura Full Cycle</h3>
+              <p class="edu-field">Microservices, Event-Driven Architecture, EDA, Clean Architecture & DevOps</p>
+            </div>
+            <div class="edu-period">Jan 2023 – Sep 2024</div>
+          </div>
+
+          <!-- Edu 3 -->
+          <div class="education-card">
+            <div>
+              <div class="edu-institution">Ampli</div>
+              <h3 class="edu-degree">Bachelor of Applied Science (BASc)</h3>
+              <p class="edu-field">Computer Software Engineering</p>
+            </div>
+            <div class="edu-period">May 2022 – May 2025</div>
+          </div>
+
+          <!-- Edu 4 -->
+          <div class="education-card">
+            <div>
+              <div class="edu-institution">Universidade Estadual de Feira de Santana (UEFS)</div>
+              <h3 class="edu-degree">Bachelor of Business Administration (BBA)</h3>
+              <p class="edu-field">Business Administration and Management</p>
+            </div>
+            <div class="edu-period">Feb 2004 – May 2009</div>
+          </div>
+
+          <!-- Edu 5 -->
+          <div class="education-card">
+            <div>
+              <div class="edu-institution">Union University</div>
+              <h3 class="edu-degree">Master of Christian Studies</h3>
+              <p class="edu-field">Theology, Ethics & Leadership</p>
+            </div>
+            <div class="edu-period">Dec 2018 – Nov 2024</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Engineering Principles / Why Work With Me
+         ========================================================================== -->
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineering Mindset</span>
+          <h2 class="section-title">Why Engineering Teams Hire Gabriel</h2>
+          <p class="section-subtitle">
+            Core principles that guide my architectural decisions, code quality, and delivery speed.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <!-- Principle 1 -->
+          <div class="principle-card">
+            <div class="principle-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="principle-title">Business Domain Before Raw Code</h3>
+            <p class="principle-desc">
+              The highest-leverage engineering decisions are made by understanding the business domain deeply. With a background in business administration and software engineering, I design systems that optimize revenue flows, eliminate operational friction, and protect margin.
+            </p>
+          </div>
+
+          <!-- Principle 2 -->
+          <div class="principle-card">
+            <div class="principle-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="principle-title">Uncompromising Test Coverage</h3>
+            <p class="principle-desc">
+              Building clean, well-tested code is non-negotiable. I back every feature with unit and end-to-end tests using Pytest, pytest-xdist, and automated CI/CD pipelines, giving teams absolute confidence during deployments and refactoring.
+            </p>
+          </div>
+
+          <!-- Principle 3 -->
+          <div class="principle-card">
+            <div class="principle-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+            </div>
+            <h3 class="principle-title">Pragmatic AI Integration</h3>
+            <p class="principle-desc">
+              I leverage modern AI tools to accelerate development velocity while keeping engineering fundamentals razor-sharp. In production, I implement strict feature flags and cost guardrails so AI integrations remain reliable and cost-effective.
+            </p>
+          </div>
+
+          <!-- Principle 4 -->
+          <div class="principle-card">
+            <div class="principle-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </div>
+            <h3 class="principle-title">Zero-Downtime Legacy Modernization</h3>
+            <p class="principle-desc">
+              Experienced in safely modernizing high-traffic legacy codebases without breaking backward compatibility or interrupting active user traffic. Every migration is staged with clear metrics and validation tests.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Contact & Lead Conversion Section
+         ========================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-header-center">
+            <span class="section-tag">Let's Connect</span>
+            <h2 class="contact-title">Ready to build something impactful?</h2>
+            <p class="contact-subtitle">
+              I'm available for engineering roles, technical consulting, and high-impact backend contracts. Reach out directly through any channel below.
+            </p>
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span>Based in Brazil (UTC-3) • Open to Remote Globally</span>
+            </div>
+          </div>
+
+          <div class="contact-cards-grid">
+            <!-- Email Card -->
+            <div class="contact-card-box">
+              <div class="contact-card-top">
+                <div class="contact-icon">
+                  <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-label">Direct Email</div>
+                  <div class="contact-val">gabrielcjr4@gmail.com</div>
+                </div>
+              </div>
+              <div class="contact-card-actions">
+                <a href="mailto:gabrielcjr4@gmail.com" class="btn btn-primary btn-sm" style="flex: 1;">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  <span>Send Email</span>
+                </a>
+                <button type="button" class="copy-btn" onclick="window.app.copyText('gabrielcjr4@gmail.com', 'Email copied to clipboard!')">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- WhatsApp Card -->
+            <div class="contact-card-box">
+              <div class="contact-card-top">
+                <div class="contact-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+                  <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.155.57 4.178 1.564 5.926l-1.664 6.074 6.24-1.636c1.71.956 3.687 1.507 5.795 1.507 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-label">WhatsApp / Phone</div>
+                  <div class="contact-val">+55 75 99276-2777</div>
+                </div>
+              </div>
+              <div class="contact-card-actions">
+                <a href="https://wa.me/5575992762777?text=Hi%20Gabriel,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk!" target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm" style="flex: 1;">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771z"/>
+                  </svg>
+                  <span>Chat on WhatsApp</span>
+                </a>
+                <button type="button" class="copy-btn" onclick="window.app.copyText('+5575992762777', 'Phone number copied!')">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-card-box">
+              <div class="contact-card-top">
+                <div class="contact-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+                  <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-label">LinkedIn Profile</div>
+                  <div class="contact-val">linkedin.com/in/gabriel-carneiro-jr</div>
+                </div>
+              </div>
+              <div class="contact-card-actions">
+                <a href="https://www.linkedin.com/in/gabriel-carneiro-jr" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width: 100%;">
+                  <span>Connect on LinkedIn →</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="contact-card-box">
+              <div class="contact-card-top">
+                <div class="contact-icon" style="background: rgba(255, 255, 255, 0.1); color: #f8fafc;">
+                  <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-label">GitHub Repositories</div>
+                  <div class="contact-val">github.com/gabrielcjr</div>
+                </div>
+              </div>
+              <div class="contact-card-actions">
+                <a href="https://github.com/gabrielcjr" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="width: 100%;">
+                  <span>Explore Repositories →</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Footer
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container footer-wrapper">
+      <div>
+        <p>&copy; 2026 Gabriel Carneiro Jr. All rights reserved.</p>
+        <p style="font-size: 0.78rem; margin-top: 0.35rem;">Software Engineer • Backend & Distributed Systems Specialist</p>
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="https://github.com/gabrielcjr" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/gabriel-carneiro-jr" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+        <a href="mailto:gabrielcjr4@gmail.com" class="nav-link">Email</a>
+        <a href="#hero" class="nav-link">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Project Deep Dive Modal
+       ========================================================================== -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-project-title">Project Deep Dive</h3>
+        <button type="button" class="modal-close-btn" onclick="window.app.closeModal('project-modal')" aria-label="Close modal">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-project-body">
+        <!-- Dynamically populated by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Resume / CV Modal
+       ========================================================================== -->
+  <div class="modal-overlay" id="resume-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Gabriel Carneiro Jr. — Resume / CV</h3>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">
+            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+            </svg>
+            <span>Print / Save PDF</span>
+          </button>
+          <button type="button" class="modal-close-btn" onclick="window.app.closeModal('resume-modal')" aria-label="Close modal">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="resume-paper">
+          <div class="resume-header">
+            <h1 class="resume-name">Gabriel Carneiro Jr</h1>
+            <div class="resume-links-row">
+              <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gabriel-carneiro-jr" target="_blank" rel="noopener noreferrer">linkedin.com/in/gabriel-carneiro-jr</a></span>
+              <span><strong>GitHub:</strong> <a href="https://github.com/gabrielcjr" target="_blank" rel="noopener noreferrer">github.com/gabrielcjr</a></span>
+              <span><strong>Email:</strong> gabrielcjr4@gmail.com</span>
+              <span><strong>Phone:</strong> +55 75 99276-2777</span>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="resume-section">
+            <h2 class="resume-section-heading">Skills</h2>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li><strong>Languages:</strong> Python, TypeScript, JavaScript, PHP, SQL</li>
+              <li><strong>Frameworks:</strong> FastAPI, Django, React, Nest.js, Node.js, Symfony</li>
+              <li><strong>DevOps & Tools:</strong> Docker, Kubernetes, GitHub Actions, CI/CD, Nginx</li>
+              <li><strong>Databases:</strong> MySQL, PostgreSQL, Redis</li>
+              <li><strong>Cloud:</strong> AWS EC2, AWS Lambda, GCP Engine, GKE</li>
+            </ul>
+          </div>
+
+          <!-- Summary -->
+          <div class="resume-section">
+            <h2 class="resume-section-heading">Summary</h2>
+            <p style="line-height: 1.6; color: var(--text-secondary);">
+              Software Engineer with 5+ years in tech — the last 3+ focused on building and optimizing backend systems with Python and PHP. I've worked on microservices architectures, RESTful APIs, and event-driven systems — delivering measurable results like a 15–20% overall performance gain, and designing event-driven integrations to automate previously manual processes. Building clean, well-tested code is non-negotiable for me — I back every feature with end-to-end and unit tests. I also specialize in modernizing legacy systems while keeping backward compatibility intact, always working closely with the team to deliver real business value.
+            </p>
+          </div>
+
+          <!-- Experience -->
+          <div class="resume-section">
+            <h2 class="resume-section-heading">Experiences</h2>
+
+            <div class="resume-item">
+              <div class="resume-item-top">
+                <span><strong>Full Cycle</strong> — Full Stack Engineer</span>
+                <span>Jul 2025 – Present | São Paulo, Brazil</span>
+              </div>
+              <div class="resume-item-sub">Microservices, Distributed Systems & AI Integration</div>
+              <ul class="resume-bullet-list">
+                <li>Accelerated page section setup by 90% by engineering reusable Python/Django admin mixins for instant deep-cloning of multi-relational sections.</li>
+                <li>Prevented 100% of unwanted AI API token consumption on disabled courses by engineering granular feature flags in Python/Django with admin controls and conditional UI rendering.</li>
+                <li>Eliminated manual work 100% by automating challenge evaluation with a PHP/Symfony webhook integration to an AI-powered microservice.</li>
+                <li>Cut manual administrative effort by 90% with a PHP/Symfony API, automating the diploma credential lifecycle with comprehensive domain validation.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-top">
+                <span><strong>Full Cycle</strong> — Full Stack Engineer</span>
+                <span>Jul 2024 – Jun 2025 | São Paulo, Brazil</span>
+              </div>
+              <div class="resume-item-sub">Performance, Reliability & Test Infrastructure Modernization</div>
+              <ul class="resume-bullet-list">
+                <li>Increased server performance by 15% through runtime, framework, and dependency upgrades to a production Python/Django sales application.</li>
+                <li>Reduced CI/CD pipeline feedback time by 20% by parallelizing test execution with Python/Django pytest-xdist library in Docker.</li>
+                <li>Decreased an endpoint's response time by 20x, fixing a pagination query bug in PHP/Symfony.</li>
+                <li>Cut infrastructure costs by eliminating an always-on worker pod, building a PHP/Symfony API that serves student-progress data on demand.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-top">
+                <span><strong>Full Cycle</strong> — Backend Engineer</span>
+                <span>Jun 2023 – Jun 2024 | São Paulo, Brazil</span>
+              </div>
+              <div class="resume-item-sub">CRM Integrations, Asynchronous Queues & Gateway Security</div>
+              <ul class="resume-bullet-list">
+                <li>Removed 5 classes of exposed entry points (config, backup, source, dependency, CMS-exploit paths) at the Nginx gateway.</li>
+                <li>Prevented sales lead loss from transient network failures by decoupling CRM lead sync into a Python/Django Celery task queue on Docker workers, with automatic retries.</li>
+                <li>Cut manual sync-recovery effort 90% with a PHP/Symfony HubSpot sync-schedule manager, auto-listing failed payment syncs with one-click admin retries.</li>
+                <li>Reduced student news-feed query latency up to 80% by caching complex multi-join chapter-release queries with a custom parameter-based Doctrine result-caching layer.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <div class="resume-item-top">
+                <span><strong>Full Cycle</strong> — Software Analyst</span>
+                <span>Feb 2021 – May 2023 | São Paulo, Brazil</span>
+              </div>
+              <div class="resume-item-sub">Analysis, troubleshooting & distributed systems support</div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="resume-section">
+            <h2 class="resume-section-heading">Education</h2>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li><strong>Full Cycle:</strong> MBA in Software Engineering with AI (Jul 2025 – Sep 2026)</li>
+              <li><strong>Full Cycle:</strong> MBA - Arquitetura Full Cycle (Jan 2023 – Sep 2024)</li>
+              <li><strong>Ampli:</strong> Bachelor of Applied Science - BASc, Computer Software Engineering (May 2022 – May 2025)</li>
+              <li><strong>Universidade Estadual de Feira de Santana (UEFS):</strong> Bachelor of Business Administration - BBA (Feb 2004 – May 2009)</li>
+              <li><strong>Union University:</strong> Master of Christian Studies (Dec 2018 – Nov 2024)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notification" id="toast">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>
