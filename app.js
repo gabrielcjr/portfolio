@@ -13,7 +13,7 @@
       subtitle: "High-concurrency crawler & developer job search engine probing 600+ companies",
       badges: ["NestJS", "PostgreSQL (GIN)", "Prisma ORM", "React 19", "Tailwind CSS", "TypeScript"],
       githubUrl: "https://github.com/gabrielcjr/jobs_nestjs_react",
-      liveUrl: null,
+      liveUrl: "https://findjobs.gabrielcjr.website",
       overview: `
         DevATS is a production-grade Software Engineering Job Board and automated multi-ATS ingestion platform. 
         It solves the problem of decentralized tech job postings by concurrently probing and classifying live engineering roles 
@@ -138,7 +138,7 @@ async def analyze_match(
       subtitle: "Clean Architecture SSR platform connecting financial sponsors with field operations",
       badges: ["Python", "Django", "PostgreSQL", "HTMX 2.0", "Tailwind CSS 4", "Pytest", "PDF Engine"],
       githubUrl: "https://github.com/gabrielcjr/amae",
-      liveUrl: null,
+      liveUrl: "https://amae.gabrielcjr.website",
       overview: `
         AMAE (Agência Missionária de Apoio Estratégico) is a production-grade SSR web application engineered 
         to connect financial sponsors (Investors) with missionaries in the field across Brazil. 
