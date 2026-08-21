@@ -1147,6 +1147,32 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
 }
 
+.skill-chip.featured-agentic {
+  background: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+  font-weight: 700;
+}
+
+.skill-chip.featured-agentic:hover {
+  background: rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.4);
+  border-color: #c084fc;
+}
+
+.skill-chip.featured-sdd {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  font-weight: 700;
+}
+
+.skill-chip.featured-sdd:hover {
+  background: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+  border-color: #34d399;
+}
+
 .skill-chip-dot {
   width: 6px;
   height: 6px;
@@ -1156,6 +1182,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .skill-chip.featured-fastapi .skill-chip-dot {
   background: #06b6d4;
+}
+
+.skill-chip.featured-agentic .skill-chip-dot {
+  background: #c084fc;
+  box-shadow: 0 0 6px #c084fc;
+}
+
+.skill-chip.featured-sdd .skill-chip-dot {
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
 }
 
 /* ==========================================================================
