@@ -1,15 +1,36 @@
-name: Build & Publish Portfolio to Docker Hub
+name: CI & Docker Hub Publish
 
 on:
   push:
     branches:
       - main
       - master
+  pull_request:
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 jobs:
+  validate:
+    name: Validate Portfolio Static Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Verify Core Files
+        run: |
+          test -f index.html
+          test -f Dockerfile
+          test -f nginx.conf
+          echo "✔ Core static files validated successfully."
+
   build-and-push:
-    name: Build & Push Docker Image
+    name: Build & Push Docker Image to Docker Hub
+    needs: validate
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
     environment: DOCKERHUB
     permissions:
       contents: write
