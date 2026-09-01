@@ -10,8 +10,9 @@ on:
 jobs:
   build-and-push:
     name: Build & Push Docker Image
-    runs-on: ubuntu-latest
     environment: DOCKERHUB
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
@@ -49,3 +50,11 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Update Kubernetes Manifest Tag & Push to GitOps
+        run: |
+          sed -i "s|image: .*/portfolio:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:${{ steps.meta.outputs.version }}|g" k8s/portfolio.yaml
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add k8s/portfolio.yaml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(gitops): update portfolio image tag to ${{ steps.meta.outputs.version }} [skip ci]" && git push origin HEAD)
