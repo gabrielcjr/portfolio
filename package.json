@@ -1,0 +1,11 @@
+{
+  "name": "gabrielcjr-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gabriel Carneiro Jr. — Portfolio Web Application",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "watch": "node scripts/build.js --watch"
+  }
+}
