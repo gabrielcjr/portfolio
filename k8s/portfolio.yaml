@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: gacarneirojrx/portfolio:ee06e8590c1078fe719e2a97057006a35e943483
+          image: gacarneirojrx/portfolio:b12cd9943162f112c66d7aad7fb86c1aaf639b76
           imagePullPolicy: Always
           ports:
             - containerPort: 80
