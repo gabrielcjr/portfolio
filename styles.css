@@ -838,6 +838,26 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-lg), var(--shadow-emerald-glow);
 }
 
+.project-card.featured-infra {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.project-card.featured-infra:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: var(--shadow-lg), 0 0 25px rgba(56, 189, 248, 0.18);
+}
+
+.live-indicator.infra {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: var(--text-cyan);
+}
+
+.live-indicator.infra .status-dot {
+  background: var(--text-cyan);
+  box-shadow: 0 0 8px var(--text-cyan);
+}
+
 .project-card-content {
   padding: 2.5rem;
   display: flex;

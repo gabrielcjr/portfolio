@@ -11,30 +11,35 @@
     devats: {
       title: "DevATS — Multi-ATS Job Ingestion Platform & Real-Time Board",
       subtitle: "High-concurrency crawler & developer job search engine probing 600+ companies",
-      badges: ["NestJS", "PostgreSQL (GIN)", "Prisma ORM", "React 19", "Tailwind CSS", "TypeScript"],
+      badges: ["NestJS", "PostgreSQL (GIN)", "Redis", "Prisma ORM", "React 19", "Tailwind CSS", "TypeScript", "SDD & ADR"],
       githubUrl: "https://github.com/gabrielcjr/jobs_nestjs_react",
       liveUrl: "https://findjobs.gabrielcjr.website",
       overview: `
         DevATS is a production-grade Software Engineering Job Board and automated multi-ATS ingestion platform. 
         It solves the problem of decentralized tech job postings by concurrently probing and classifying live engineering roles 
-        across Greenhouse, Lever, and Ashby without relying on expensive third-party APIs or brittle web scraping.
+        across Greenhouse, Lever, and Ashby without relying on expensive third-party APIs or brittle web scraping. 
+        Engineered with strict Spec-Driven Development (SDD) and Architecture Decision Records (ADR 0001–0005).
       `,
       challengesSolved: [
         {
-          title: "Heuristic Candidate Slug Discovery",
-          detail: "Automatically parses datasets containing 629+ companies, strips corporate suffixes (Inc, LLC, GmbH, Labs), and generates permutations to discover active job boards."
+          title: "Intelligent IT-Only Classifier (isItJob)",
+          detail: "Guards ATS adapters (Ashby, Greenhouse, Lever) against non-developer positions using regex and keyword classifiers, paired with an automated CLI script and endpoint (POST /jobs/prune-non-it) to sweep legacy non-IT records."
         },
         {
-          title: "Non-Blocking Async Probing",
-          detail: "Probes 600+ companies concurrently using background workers with real-time streaming progress updates (POST /api/v1/ingest/start-csv-discovery)."
+          title: "45-Day Stale Retention & Soft-Deletion Lifecycle (ADR/SDD 0005)",
+          detail: "Automates retention lifecycle policies by soft-deleting postings older than 45 days, preventing expired roles from polluting live queries while guarding ingestion from resurrecting dead positions."
         },
         {
-          title: "100% Idempotent Upserts",
-          detail: "Uses composite unique keys (atsProvider, externalJobId) to prevent duplication across runs, updating firstSeenAt and lastSeenAt timestamps seamlessly."
+          title: "Compensation & Salary Range Parsing (ADR/SDD 0004)",
+          detail: "Extracts structured numeric compensation boundaries (min/max pay and currency denominations) from raw ATS payloads into database schema columns for transparent salary analytics."
         },
         {
-          title: "Sub-Millisecond Faceted Search",
-          detail: "Leverages optimized PostgreSQL indexing to allow multi-tag tech filtering (40+ auto-extracted technologies) in sub-millisecond response times."
+          title: "Redis Facet Caching Subsystem (ADR/SDD 0001)",
+          detail: "Caches top 100 tech facet tags and filter combinations in Redis, delivering sub-millisecond dynamic slicing alongside PostgreSQL GIN index filtering."
+        },
+        {
+          title: "Heuristic Slug Normalization & Concurrent Probing",
+          detail: "Parses datasets with 629+ companies, strips corporate legal suffixes (Inc, LLC, GmbH), and probes 3 ATS platforms concurrently with 100% idempotent upsert queues."
         }
       ],
       architectureFlow: `
@@ -43,28 +48,31 @@
 └─────────────────────────┘     └────────────────────────────┘     └─────────────┬─────────────┘
                                                                                  │
 ┌─────────────────────────┐     ┌────────────────────────────┐                   ▼
-│ React 19 Faceted UI     │ <── │ PostgreSQL Database        │ <── ┌───────────────────────────┐
-│ Master-Detail Dual Pane │     │ Prisma ORM Upsert Pipeline │     │ Regex Inference & Tagging │
-└─────────────────────────┘     └────────────────────────────┘     │ (Role, Seniority, Tech)   │
+│ React 19 Faceted UI     │ <── │ Redis Cache Layer (Tags)   │ <── ┌───────────────────────────┐
+│ Master-Detail Dual Pane │     │ PostgreSQL (GIN Indexes)   │     │ isItJob Classifier Guard  │
+└─────────────────────────┘     └────────────────────────────┘     │ Ashby Salary Parser       │
+                                                                   │ 45-Day Stale Pruning Cron │
                                                                    └───────────────────────────┘
       `,
-      codeSnippet: `// Heuristic ATS Discovery & Ingestion Pipeline Sample
+      codeSnippet: `// Intelligent IT Classifier Guard & Ingestion Pipeline Sample
+export function isItJob(title: string, categories?: string[]): boolean {
+  const normalized = title.toLowerCase();
+  
+  // Guard against non-development / administrative postings
+  const nonItExclusions = /\\b(sales|account executive|recruiter|hr coordinator|legal|finance|marketing)\\b/i;
+  if (nonItExclusions.test(normalized)) return false;
+
+  // Strict technical keywords requirement
+  const itPatterns = /\\b(software|developer|engineer|full[- ]?stack|backend|frontend|devops|sre|platform|data)\\b/i;
+  return itPatterns.test(normalized);
+}
+
 @Injectable()
 export class IngestionService {
-  async discoverAndSyncCompany(companyName: string): Promise<SyncResult> {
-    const candidateSlugs = this.slugGenerator.generateVariations(companyName);
-    const liveBoard = await this.atsProber.probeConcurrent(candidateSlugs, [
-      AtsProvider.GREENHOUSE,
-      AtsProvider.LEVER,
-      AtsProvider.ASHBY,
-    ]);
-
-    if (!liveBoard) return { status: 'NOT_FOUND' };
-
-    const rawJobs = await this.fetchJobs(liveBoard);
-    const normalizedJobs = rawJobs.map(job => this.classifier.normalize(job));
-
-    return await this.prisma.job.upsertManyIdempotent(normalizedJobs);
+  async processJob(job: RawAtsJob): Promise<void> {
+    if (!isItJob(job.title, job.departments)) return; // Reject non-IT
+    const salary = this.salaryParser.extract(job.rawContent);
+    await this.prisma.job.upsertIdempotent({ ...job, ...salary });
   }
 }`
     },
@@ -72,18 +80,18 @@ export class IngestionService {
     atsproof: {
       title: "ATS MatchProof — Dual-Engine Resume & Job Matcher",
       subtitle: "Dual-Engine AI resume simulation with zero-disk in-memory stream processing",
-      badges: ["FastAPI", "Python", "HTMX", "Tailwind CSS", "Dual-AI Engine", "In-Memory PDF", "Bilingual"],
+      badges: ["FastAPI", "Python", "HTMX", "Tailwind CSS", "Dual-AI Engine", "In-Memory PDF (200KB)", "Bilingual"],
       githubUrl: "https://github.com/gabrielcjr/atsproof",
       liveUrl: "https://atsproof.website/",
       overview: `
         ATS MatchProof (live at atsproof.website) is a 100% free, zero-account dual-engine ATS simulator.
         It enables job applicants to benchmark their PDF resumes against specific job descriptions, revealing keyword gaps, 
-        experience alignment scores, and instant AI-optimized bullet point rewrite recommendations.
+        experience alignment scores, and instant AI-optimized bullet point rewrite recommendations with strict in-memory privacy.
       `,
       challengesSolved: [
         {
-          title: "Zero-Storage Privacy Architecture",
-          detail: "Resumes are uploaded via multipart streams, parsed directly in volatile RAM, and immediately discarded. No personal data or resumes ever hit disk or persistent databases."
+          title: "Zero-Storage Privacy Architecture (200KB Ceiling)",
+          detail: "Resumes are uploaded via multipart streams, validated against a 200KB bounded ceiling, parsed directly in volatile RAM, and immediately discarded. No personal data or resumes ever hit disk or persistent databases."
         },
         {
           title: "High-Throughput FastAPI + HTMX Stack",
@@ -94,13 +102,14 @@ export class IngestionService {
           detail: "Performs simultaneous keyword density extraction and semantic LLM evaluation to provide both mathematical keyword match percentages and contextual advice."
         },
         {
-          title: "Bilingual Internationalization",
-          detail: "Built with seamless English (EN) and Portuguese (PT) multi-locale support and instant DOCX ATS-friendly resume template downloads."
+          title: "Bilingual Internationalization & Automated CI/CD",
+          detail: "Built with seamless English (EN) and Portuguese (PT) multi-locale support, instant DOCX ATS-friendly resume template downloads, and GitHub Actions CI with automated Docker Hub tag pruning."
         }
       ],
       architectureFlow: `
 ┌─────────────────────────┐     ┌────────────────────────────┐     ┌───────────────────────────┐
-│ User PDF + Job Desc     │ ──> │ FastAPI In-Memory Stream   │ ──> │ PDF Decoder (pypdf/fitz)  │
+│ User PDF (Max 200KB)    │ ──> │ FastAPI In-Memory Stream   │ ──> │ RAM PDF Decoder (pypdf)   │
+│ + Job Description       │     │ (Zero-Disk Persistence)    │     │ Strict Buffer Bounds      │
 └─────────────────────────┘     └────────────────────────────┘     └─────────────┬─────────────┘
                                                                                  │
 ┌─────────────────────────┐     ┌────────────────────────────┐                   ▼
@@ -108,7 +117,9 @@ export class IngestionService {
 │ Instant Score & Bullets │     │ Claude / OpenAI Fallback   │     │ Keyword & Skill Matcher   │
 └─────────────────────────┘     └────────────────────────────┘     └───────────────────────────┘
       `,
-      codeSnippet: `# FastAPI Streaming In-Memory Resume Evaluator
+      codeSnippet: `# FastAPI Streaming In-Memory Resume Evaluator (200KB Ceiling)
+MAX_PDF_SIZE_BYTES: int = 200 * 1024  # Enforce strict 200 KB ceiling
+
 @router.post("/analyze", response_class=HTMLResponse)
 async def analyze_match(
     request: Request,
@@ -118,6 +129,9 @@ async def analyze_match(
 ):
     # Enforce strict in-memory parsing (Zero persistent disk I/O)
     content_bytes = await resume.read()
+    if len(content_bytes) > MAX_PDF_SIZE_BYTES:
+        raise HTTPException(status_code=413, detail="Resume exceeds 200KB limit")
+
     extracted_text = extract_pdf_in_memory(content_bytes)
 
     # Run Dual-Engine ATS Evaluation
@@ -136,16 +150,20 @@ async def analyze_match(
     amae: {
       title: "AMAE — Missionary & Financial Ledger Operations Platform",
       subtitle: "Clean Architecture SSR platform connecting financial sponsors with field operations",
-      badges: ["Python", "Django", "PostgreSQL", "HTMX 2.0", "Tailwind CSS 4", "Pytest", "PDF Engine"],
+      badges: ["Python", "Django", "PostgreSQL", "Redis", "HTMX 2.0", "Tailwind CSS 4", "Bilingual (EN/PT)", "Pytest"],
       githubUrl: "https://github.com/gabrielcjr/amae",
       liveUrl: "https://amae.gabrielcjr.website",
       overview: `
         AMAE (Agência Missionária de Apoio Estratégico) is a production-grade SSR web application engineered 
         to connect financial sponsors (Investors) with missionaries in the field across Brazil. 
         It automates monthly financial adoptions, tracks field locations via geocoded coordinates, handles double-entry ledgers, 
-        and generates automated PDF audit statements on the fly.
+        and provides full bilingual internationalization (English default and Brazilian Portuguese).
       `,
       challengesSolved: [
+        {
+          title: "Bilingual Internationalization (i18n & l10n)",
+          detail: "Engineered comprehensive multi-language support with English as default and Brazilian Portuguese (PT-BR), including dynamic navbar language switching, localized model choices and form labels, compiled gettext catalogs, and a dedicated Pytest test suite."
+        },
         {
           title: "Decoupled Clean Domain Architecture",
           detail: "Divided into isolated Django applications ('missions', 'finance', 'pages') preventing circular dependencies and isolating domain logic cleanly."
@@ -157,23 +175,19 @@ async def analyze_match(
         {
           title: "Automated Recurring Financial Ledger",
           detail: "Maintains relational transaction chains for income and expense allocation with dynamic audit rules and status calculation."
-        },
-        {
-          title: "Automated PDF Receipt & Statement Pipeline",
-          detail: "Generates cryptographic financial receipts and monthly statements dynamically without external heavyweight services."
         }
       ],
       architectureFlow: `
 ┌─────────────────────────┐     ┌────────────────────────────┐     ┌───────────────────────────┐
 │ Investor & Missionary   │ ──> │ Django Domain Layer        │ ──> │ PostgreSQL Database       │
-│ Financial Adoption UI   │     │ missions / finance apps    │     │ Foreign Key Constraints   │
-└─────────────────────────┘     └─────────────┬──────────────┘     └─────────────┬─────────────┘
-                                              │                                  │
-                                              ▼                                  ▼
-                                ┌────────────────────────────┐     ┌───────────────────────────┐
-                                │ On-The-Fly PDF Generator   │ ──> │ HTMX 2.0 SSR UI Views     │
-                                │ Monthly Statement Exports  │     │ Geocoded Coordinate Maps  │
-                                └────────────────────────────┘     └───────────────────────────┘
+│ Financial Adoption UI   │     │ missions / finance apps    │     │ Redis Session Cache       │
+└───────────┬─────────────┘     └─────────────┬──────────────┘     └─────────────┬─────────────┘
+            │                                 │                                  │
+            ▼                                 ▼                                  ▼
+┌─────────────────────────┐     ┌────────────────────────────┐     ┌───────────────────────────┐
+│ Bilingual i18n Engine   │     │ On-The-Fly PDF Generator   │ ──> │ HTMX 2.0 SSR UI Views     │
+│ (EN Default / PT-BR)    │     │ Monthly Statement Exports  │     │ Geocoded Coordinate Maps  │
+└─────────────────────────┘     └────────────────────────────┘     └───────────────────────────┘
       `,
       codeSnippet: `# Decoupled Domain Calculation & Financial Ledger (Django)
 class MissionField(models.Model):
@@ -188,6 +202,83 @@ class MissionField(models.Model):
         
         target_budget = self.missionaries_needed * Decimal('2500.00')
         return "FULLY_FUNDED" if total_monthly >= target_budget else "PARTIAL"`
+    },
+
+    k8s_portfolio: {
+      title: "K3s Cloud-Native GitOps & Observability Platform",
+      subtitle: "Declarative Kubernetes continuous delivery with ArgoCD, Prometheus, Grafana 360, and Loki/Promtail",
+      badges: ["Kubernetes (K3s)", "ArgoCD", "Prometheus", "Grafana", "Loki", "Promtail", "GitOps", "Docker Hub CI"],
+      githubUrl: "https://github.com/gabrielcjr/k8s_portfolio",
+      liveUrl: "https://gabrielcjr.website",
+      overview: `
+        A high-availability production cloud-native infrastructure orchestrating Gabriel's complete project ecosystem 
+        on a multi-tenant K3s Kubernetes cluster. Implements declarative GitOps continuous delivery with ArgoCD 
+        (automated syncing, self-healing, resource pruning), centralized multi-tenant log aggregation with Loki & Promtail, 
+        and real-time telemetry via Prometheus and a custom-engineered 'K3s Production Apps 360' Grafana dashboard.
+      `,
+      challengesSolved: [
+        {
+          title: "Declarative GitOps Delivery & Self-Healing (ArgoCD)",
+          detail: "Configured ArgoCD Application CRDs managing all live environments (portfolio, amae, jobs, atsproof), automatically pulling immutable SHA-tagged images built via GitHub Actions and enforcing zero configuration drift."
+        },
+        {
+          title: "Custom 'K3s Production Apps 360' Telemetry (Prometheus & Grafana)",
+          detail: "Engineered a comprehensive 360-degree observability dashboard monitoring container CPU/RAM quotas, pod restart counters, HTTP ingress status, and node health in real-time."
+        },
+        {
+          title: "Centralized Multi-Tenant Log Streaming (Loki & Promtail)",
+          detail: "Deployed Promtail daemonsets to capture container stdout streams across all Kubernetes namespaces, feeding directly into Grafana Loki for unified query debugging without SSH container access."
+        },
+        {
+          title: "Multi-Arch Parallel CI & Automated Docker Hub Tag Pruning",
+          detail: "Implemented native builder platform acceleration in GitHub Actions with automated Docker Hub tag pruning routines (keeping latest + 3 most recent tags) to eliminate registry storage bloat."
+        },
+        {
+          title: "Automated Host Healthcheck & SSL Verification Suite",
+          detail: "Engineered the master cluster script (start_all_services.sh) automating K3s control-plane health, Nginx reverse-proxy SSL/TLS termination, and HTTP endpoint readiness testing."
+        }
+      ],
+      architectureFlow: `
+┌────────────────────────┐      ┌─────────────────────────┐      ┌────────────────────────┐
+│ GitHub Commits (Master)│ ───> │ GitHub Actions CI Multi │ ───> │ Docker Hub Registry    │
+│ (Jobs, ATS, AMAE, Port)│      │ Native ARM/AMD64 Build  │      │ Automated Tag Pruning  │
+└────────────────────────┘      └─────────────────────────┘      └───────────┬────────────┘
+                                                                             │
+┌────────────────────────┐      ┌─────────────────────────┐                  ▼
+│ Host Nginx SSL Gateway │ <─── │ K3s Kubernetes Cluster  │ <─── ┌────────────────────────┐
+│ gabrielcjr.website     │      │ Multi-Tenant Namespaces │      │ ArgoCD GitOps Engine   │
+└────────────────────────┘      └────────────┬────────────┘      │ Auto-Sync & Self-Heal  │
+                                             │                   └────────────────────────┘
+                                ┌────────────┴────────────┐
+                                ▼                         ▼
+                   ┌─────────────────────────┐ ┌─────────────────────────┐
+                   │ Prometheus Metrics      │ │ Promtail ➔ Loki Logs    │
+                   │ Grafana 360 Dashboard   │ │ Centralized Aggregation │
+                   └─────────────────────────┘ └─────────────────────────┘
+      `,
+      codeSnippet: `# ArgoCD GitOps Declarative Application Manifest (k8s_portfolio)
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jobs-production
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gabrielcjr/jobs_nestjs_react.git
+    targetRevision: HEAD
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: jobs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true`
     }
   };
 
