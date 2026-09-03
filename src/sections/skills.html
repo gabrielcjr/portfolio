@@ -1,0 +1,177 @@
+<!-- ==========================================================================
+         Interactive Skills Matrix (Categorized + Filterable)
+         ========================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Technical Competencies</span>
+          <h2 class="section-title">Production Skills & Ecosystem</h2>
+          <p class="section-subtitle">
+            Battle-tested technologies and architectural methodologies used in production to build microservices, event-driven pipelines, secure APIs, and AI agentic workflows.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="skills-controls">
+          <button class="filter-btn active" data-category="all">All Disciplines</button>
+          <button class="filter-btn" data-category="ai-agentic">AI & Agentic</button>
+          <button class="filter-btn" data-category="architecture">Architecture</button>
+          <button class="filter-btn" data-category="languages">Languages</button>
+          <button class="filter-btn" data-category="frameworks">Frameworks</button>
+          <button class="filter-btn" data-category="cloud-devops">Cloud & DevOps</button>
+          <button class="filter-btn" data-category="databases">Databases</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid" id="skills-container">
+
+          <!-- Card 1: AI & Agentic -->
+          <div class="skill-category-card" data-category="ai-agentic">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">AI & Agentic</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip featured-agentic" title="Model Context Protocol for seamless tool integration">
+                <span class="skill-chip-dot"></span>
+                <strong>Model Context Protocol (MCP)</strong>
+              </span>
+              <span class="skill-chip featured-agentic" title="Autonomous Multi-Agent Systems & Orchestration">
+                <span class="skill-chip-dot"></span>
+                <strong>Multi-Agent Workflows</strong>
+              </span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>LangChain</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>AI Tooling</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Architecture & Methodologies -->
+          <div class="skill-category-card" data-category="architecture">
+            <div class="skill-category-header">
+              <div class="skill-category-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Architecture</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip featured-sdd" title="Spec-Driven Development ensuring rigorous contract design">
+                <span class="skill-chip-dot"></span>
+                <strong>Spec-Driven Development (SDD)</strong>
+              </span>
+              <span class="skill-chip featured-sdd" title="Architecture Decision Records for institutional memory">
+                <span class="skill-chip-dot"></span>
+                <strong>Architecture Decision Records (ADR)</strong>
+              </span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Cloud-Native GitOps</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Data Retention Lifecycles</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Microservices</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>RESTful APIs</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Event-Driven Systems</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Languages -->
+          <div class="skill-category-card" data-category="languages">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Languages</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Python</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>TypeScript</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>JavaScript</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>PHP</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Frameworks -->
+          <div class="skill-category-card" data-category="frameworks">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Frameworks</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Django</span>
+              <span class="skill-chip featured-fastapi" title="High-performance async Python APIs">
+                <span class="skill-chip-dot"></span>
+                <strong>FastAPI</strong>
+              </span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>React</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>NestJs</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Node.js</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Symfony</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Databases -->
+          <div class="skill-category-card" data-category="databases">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Databases & Caching</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>PostgreSQL (GIN)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>MySQL</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Redis (Cache & Queues)</span>
+            </div>
+          </div>
+
+          <!-- Card 6: DevOps & GitOps -->
+          <div class="skill-category-card" data-category="cloud-devops">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">DevOps & GitOps</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Kubernetes (K3s)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>ArgoCD (GitOps)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Docker</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>GitHub Actions</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>CI/CD Automation</span>
+            </div>
+          </div>
+
+          <!-- Card 7: Cloud & Observability -->
+          <div class="skill-category-card" data-category="cloud-devops">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                </svg>
+              </div>
+              <h3 class="skill-category-title">Observability & Cloud</h3>
+            </div>
+            <div class="skill-items-list">
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Prometheus</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Grafana (360 Dashboards)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>Loki & Promtail</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>AWS (EC2, Lambda)</span>
+              <span class="skill-chip"><span class="skill-chip-dot"></span>GCP (Compute Engine, GKE)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>

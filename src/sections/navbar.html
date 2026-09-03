@@ -1,0 +1,58 @@
+<!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#hero" class="nav-brand" id="nav-brand-link">
+        <div class="brand-badge">GC</div>
+        <div class="brand-info">
+          <span class="brand-name">Gabriel Carneiro Jr.</span>
+          <span class="brand-title">Full Stack Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#impact" class="nav-link">Impact</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#principles" class="nav-link">Philosophy</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button type="button" class="btn btn-secondary btn-sm" id="open-resume-btn">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span>View CV</span>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Let's Talk</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#impact" class="mobile-nav-link">Production Impact</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Featured Projects</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills & Stack</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience Timeline</a></li>
+      <li><a href="#principles" class="mobile-nav-link">Engineering Philosophy</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact & Hire</a></li>
+    </ul>
+    <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem;">
+      <button type="button" class="btn btn-secondary btn-sm" id="mobile-resume-btn" style="flex: 1;">View CV</button>
+      <a href="#contact" class="btn btn-primary btn-sm" style="flex: 1;">Let's Talk</a>
+    </div>
+  </div>

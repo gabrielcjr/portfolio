@@ -1,0 +1,490 @@
+<!-- ==========================================================================
+         Featured Projects (Case Studies)
+         ========================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineering Showcase</span>
+          <h2 class="section-title">Production-Grade Projects & Systems</h2>
+          <p class="section-subtitle">
+            Explore 4 featured systems demonstrating cloud-native GitOps, high-concurrency ingestion, dual-engine AI simulation, and resilient full-stack architectures.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT 1: DevATS (jobs_nestjs_react) -->
+          <article class="project-card featured-live" id="project-devats">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">High-Concurrency Ingestion & IT Job Engine</span>
+                  <div class="live-indicator">
+                    <span class="status-dot"></span>
+                    <span>Live in Production</span>
+                  </div>
+                </div>
+                <h3 class="project-title">DevATS — Multi-ATS Job Ingestion Platform</h3>
+                <p class="project-summary">
+                  A high-throughput distributed crawler & developer-focused job board probing 600+ tech companies across Greenhouse, Lever, and Ashby concurrently without requiring API keys. Features strict IT-only job classification (<code>isItJob</code>), automated 45-day stale retention pruning, Ashby salary range parsing, Redis facet caching, and sub-millisecond PostgreSQL GIN index filtering.
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Multi-ATS Slug Discovery:</strong> Heuristic slug generation stripping legal suffixes with concurrent 3-platform probing.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>IT-Only Classifier Guard & Pruning:</strong> <code>isItJob</code> classifier rejects non-development roles at adapter boundary, with automated sweeping CLI scripts and endpoints.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>45-Day Stale Retention Lifecycle (ADR/SDD 0005):</strong> Automated soft-deletion of expired roles preventing dead posting resurrection.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Redis Facet Cache & Salary Parsing (ADR/SDD 0001/0004):</strong> Caches top 100 facet tags for instant slicing and parses numeric compensation bands.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge highlight">NestJS 11</span>
+                  <span class="tag-badge highlight">Redis</span>
+                  <span class="tag-badge">PostgreSQL (GIN)</span>
+                  <span class="tag-badge">Prisma ORM</span>
+                  <span class="tag-badge">React 19</span>
+                  <span class="tag-badge">TypeScript</span>
+                  <span class="tag-badge">Tailwind CSS</span>
+                  <span class="tag-badge">SDD / ADR</span>
+                  <span class="tag-badge highlight">600+ ATS Probed</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <a href="https://findjobs.gabrielcjr.website" target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  <span>Launch Live App (findjobs.gabrielcjr.website)</span>
+                </a>
+                <div class="project-action-buttons">
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('devats')">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span>Architecture Deep Dive</span>
+                  </button>
+                  <a href="https://github.com/gabrielcjr/jobs_nestjs_react" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <span>GitHub Repository</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>DATA FLOW & INGESTION PIPELINE</span>
+                  <span class="tag-badge">Async Prober</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">1</span>
+                    <div>
+                      <div class="arch-step-text">Candidate Slug Generation</div>
+                      <div class="arch-step-sub">629+ companies cleaned & mapped</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">2</span>
+                    <div>
+                      <div class="arch-step-text">Concurrent ATS Probe</div>
+                      <div class="arch-step-sub">Greenhouse / Lever / Ashby</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">3</span>
+                    <div>
+                      <div class="arch-step-text">isItJob Guard & Salary Parser</div>
+                      <div class="arch-step-sub">Strict IT roles + numeric compensation</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">4</span>
+                    <div>
+                      <div class="arch-step-text">Redis Cache & PostgreSQL GIN</div>
+                      <div class="arch-step-sub">Sub-ms faceted query response times</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: ATS MatchProof (Live on atsproof.website) -->
+          <article class="project-card featured-live" id="project-atsproof">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">AI-Powered Resume & ATS Intelligence</span>
+                  <div class="live-indicator">
+                    <span class="status-dot"></span>
+                    <span>Live in Production</span>
+                  </div>
+                </div>
+                <h3 class="project-title">ATS MatchProof — Dual-Engine ATS Simulator</h3>
+                <p class="project-summary">
+                  A high-speed, zero-account web application that compares PDF resumes against job descriptions with dual-engine AI scoring, skill gap detection, and instant bullet point optimization. Built with a strict privacy-first, zero-disk-storage in-memory stream processing model (bounded 200KB ceiling).
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Privacy-First In-Memory Parsing:</strong> Resumes parsed in volatile RAM with strict 200KB bounded ceiling and zero disk persistence.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>FastAPI & HTMX Architecture:</strong> Instant reactive responses without heavy frontend client-side bloat.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Dual-AI Matching Engine:</strong> Real-time keyword scoring, experience alignment, and actionable bullet rewrite generation.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge highlight">FastAPI</span>
+                  <span class="tag-badge">Python</span>
+                  <span class="tag-badge">HTMX</span>
+                  <span class="tag-badge">Tailwind CSS</span>
+                  <span class="tag-badge">AI / LLM Integration</span>
+                  <span class="tag-badge">In-Memory PDF (200KB)</span>
+                  <span class="tag-badge">Bilingual (EN/PT)</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <a href="https://atsproof.website/" target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  <span>Launch Live App (atsproof.website)</span>
+                </a>
+                <div class="project-action-buttons">
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('atsproof')">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span>Architecture Deep Dive</span>
+                  </button>
+                  <a href="https://github.com/gabrielcjr/atsproof" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <span>GitHub Repository</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>ATS DUAL-ENGINE WORKFLOW</span>
+                  <span class="tag-badge" style="color: #34d399;">Zero Storage</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">1</span>
+                    <div>
+                      <div class="arch-step-text">Multipart Stream Ingestion</div>
+                      <div class="arch-step-sub">PDF decoded in-memory bytes (200KB)</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">2</span>
+                    <div>
+                      <div class="arch-step-text">Dual-Engine AI Benchmark</div>
+                      <div class="arch-step-sub">Skill density vs Job Description</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">3</span>
+                    <div>
+                      <div class="arch-step-text">Instant Bullet Rewriter</div>
+                      <div class="arch-step-sub">Generates optimized impact points</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">4</span>
+                    <div>
+                      <div class="arch-step-text">Reactive HTMX Fragment Render</div>
+                      <div class="arch-step-sub">Zero frontend build step needed</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: AMAE (Missionary & Financial Ledger Platform) -->
+          <article class="project-card featured-live" id="project-amae">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">Financial Accounting & Asset Management Engine</span>
+                  <div class="live-indicator">
+                    <span class="status-dot"></span>
+                    <span>Live in Production</span>
+                  </div>
+                </div>
+                <h3 class="project-title">AMAE — Financial Ledger & Operations Platform</h3>
+                <p class="project-summary">
+                  A production-grade, server-side rendered (SSR) web application connecting financial sponsors with field missionaries across Brazil. Automates recurring financial adoptions, tracks mission-field coordinates with geocoding, generates on-the-fly financial receipt PDFs, and provides full bilingual internationalization (English default and Brazilian Portuguese).
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Bilingual Internationalization (EN / PT-BR):</strong> Dynamic locale switching in navbar, localized Django model choices and form labels, with full Pytest test coverage.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Decoupled Django Domain Modules:</strong> Isolated apps (<code>missions</code>, <code>finance</code>, <code>pages</code>) following clean architecture.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Automated Adoption Ledger:</strong> Multi-relational income/expense transactions with dynamic calculation rules.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>High-Fidelity Automated Tests:</strong> Comprehensive Pytest test suite covering domain validations, statement generation, and language switching.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge">Python</span>
+                  <span class="tag-badge highlight">Django</span>
+                  <span class="tag-badge">PostgreSQL</span>
+                  <span class="tag-badge highlight">Redis</span>
+                  <span class="tag-badge">HTMX 2.0</span>
+                  <span class="tag-badge">Tailwind CSS 4</span>
+                  <span class="tag-badge highlight">Bilingual (EN/PT)</span>
+                  <span class="tag-badge highlight">Clean Arch</span>
+                  <span class="tag-badge">Pytest</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <a href="https://amae.gabrielcjr.website" target="_blank" rel="noopener noreferrer" class="btn btn-emerald btn-sm">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  <span>Launch Live App (amae.gabrielcjr.website)</span>
+                </a>
+                <div class="project-action-buttons">
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('amae')">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span>Architecture Deep Dive</span>
+                  </button>
+                  <a href="https://github.com/gabrielcjr/amae" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <span>GitHub Repository</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>DOMAIN ENTITY RELATIONSHIPS</span>
+                  <span class="tag-badge highlight">Django 6.0</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">1</span>
+                    <div>
+                      <div class="arch-step-text">Investor ➔ Adoption & i18n</div>
+                      <div class="arch-step-sub">Sponsors linked with EN/PT-BR locale</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">2</span>
+                    <div>
+                      <div class="arch-step-text">Geocoded Location Mapping</div>
+                      <div class="arch-step-sub">Latitude/Longitude coordinate tracking</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">3</span>
+                    <div>
+                      <div class="arch-step-text">Double-Entry Financial Ledger</div>
+                      <div class="arch-step-sub">Income/expense category balances</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">4</span>
+                    <div>
+                      <div class="arch-step-text">On-The-Fly PDF Statements</div>
+                      <div class="arch-step-sub">Automated monthly audit statements</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: K3s GitOps & Observability Platform (k8s_portfolio) -->
+          <article class="project-card featured-infra" id="project-k8s">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">Cloud-Native GitOps & Telemetry Platform</span>
+                  <div class="live-indicator infra">
+                    <span class="status-dot"></span>
+                    <span>Live Multi-Tenant Cluster</span>
+                  </div>
+                </div>
+                <h3 class="project-title">K3s GitOps & Observability — Multi-Service Kubernetes Platform</h3>
+                <p class="project-summary">
+                  A high-availability production cloud-native platform hosting Gabriel's complete project ecosystem on a multi-tenant K3s Kubernetes cluster. Implements declarative GitOps continuous delivery with ArgoCD (automated syncing, self-healing, resource pruning), centralized multi-tenant log aggregation with Loki & Promtail, and real-time telemetry via Prometheus and a custom-engineered 'K3s Production Apps 360' Grafana dashboard.
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Declarative GitOps with ArgoCD:</strong> Continuous delivery pipelines with self-healing, automated syncing, and immutable SHA-based image tracking across all namespaces.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Full-Stack Telemetry & 360 Dashboards:</strong> Prometheus scraping cluster and application metrics, feeding a custom-built Grafana 'K3s Production Apps 360' dashboard.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Centralized Multi-Tenant Logging:</strong> Promtail daemonsets streaming container logs into Loki for instant query debugging without SSH container access.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Automated Cluster Verification & Tag Pruning:</strong> Multi-arch CI builds with automated Docker Hub tag pruning routines (keeping latest + 3 tags) and host healthcheck verification suites.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge highlight">Kubernetes (K3s)</span>
+                  <span class="tag-badge highlight">ArgoCD</span>
+                  <span class="tag-badge">Prometheus</span>
+                  <span class="tag-badge">Grafana</span>
+                  <span class="tag-badge">Loki & Promtail</span>
+                  <span class="tag-badge">GitOps</span>
+                  <span class="tag-badge">Docker Hub CI/CD</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <div class="project-action-buttons">
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('k8s_portfolio')">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span>Architecture Deep Dive</span>
+                  </button>
+                  <a href="https://github.com/gabrielcjr/k8s_portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <span>GitHub Repository</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>K3S GITOPS & TELEMETRY WORKFLOW</span>
+                  <span class="tag-badge" style="color: #38bdf8;">Cluster 360</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">1</span>
+                    <div>
+                      <div class="arch-step-text">Git Push & Multi-Arch CI</div>
+                      <div class="arch-step-sub">Native ARM/AMD64 Docker Hub builds</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">2</span>
+                    <div>
+                      <div class="arch-step-text">ArgoCD Declarative GitOps</div>
+                      <div class="arch-step-sub">Self-healing continuous delivery</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">3</span>
+                    <div>
+                      <div class="arch-step-text">K3s Multi-Tenant Cluster</div>
+                      <div class="arch-step-sub">DevATS, AMAE, ATSProof, Portfolio</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">4</span>
+                    <div>
+                      <div class="arch-step-text">Prometheus + Loki + Grafana</div>
+                      <div class="arch-step-sub">360 metrics & centralized log streaming</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
