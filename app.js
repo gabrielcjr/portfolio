@@ -369,19 +369,18 @@ spec:
       if (heroResumeBtn) heroResumeBtn.addEventListener('click', openResume);
       if (mobileResumeBtn) mobileResumeBtn.addEventListener('click', openResume);
 
-      // Close modal on Escape key or backdrop click
+      // Close modal on Escape key
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-          document.querySelectorAll('.modal-overlay.active').forEach(m => {
-            m.classList.remove('active');
-          });
+          this.closeAllModals();
         }
       });
 
+      // Close modal on backdrop click
       document.querySelectorAll('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', (e) => {
           if (e.target === overlay) {
-            overlay.classList.remove('active');
+            this.closeModal(overlay.id);
           }
         });
       });
@@ -391,15 +390,41 @@ spec:
       const modal = document.getElementById(modalId);
       if (modal) {
         modal.classList.add('active');
+        document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
       }
     },
 
     closeModal: function (modalId) {
-      const modal = document.getElementById(modalId);
+      const modal = modalId ? document.getElementById(modalId) : null;
       if (modal) {
         modal.classList.remove('active');
-        document.body.style.overflow = '';
+      }
+
+      // Check if any modal is still active
+      const anyActive = document.querySelector('.modal-overlay.active');
+      if (!anyActive) {
+        this.restorePageScroll();
+      }
+    },
+
+    closeAllModals: function () {
+      document.querySelectorAll('.modal-overlay.active').forEach(m => {
+        m.classList.remove('active');
+      });
+      this.restorePageScroll();
+    },
+
+    restorePageScroll: function () {
+      document.body.classList.remove('modal-open');
+      document.body.style.removeProperty('overflow');
+      document.documentElement.style.removeProperty('overflow');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+
+      // Unfocus any active element to ensure mouse scroll targets the window
+      if (document.activeElement && document.activeElement !== document.body) {
+        document.activeElement.blur();
       }
     },
 
@@ -480,6 +505,9 @@ spec:
               </svg>
               <span>View Source on GitHub</span>
             </a>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="window.app.closeModal('project-modal')" style="margin-left: auto;">
+              <span>Close</span>
+            </button>
           </div>
         </div>
       `;
