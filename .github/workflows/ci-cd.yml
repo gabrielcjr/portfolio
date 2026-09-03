@@ -24,7 +24,9 @@ jobs:
           test -f index.html
           test -f Dockerfile
           test -f nginx.conf
-          echo "✔ Core static files validated successfully."
+          test -d css
+          test -d js
+          echo "✔ Core static files and modular assets validated successfully."
 
   build-and-push:
     name: Build & Push Docker Image to Docker Hub

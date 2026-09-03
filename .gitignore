@@ -2,4 +2,4 @@
 .env
 *secret*.yaml
 *.secret.yaml
-
+node_modules/
