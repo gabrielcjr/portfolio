@@ -3,6 +3,7 @@
  * Main Application Entry Point
  */
 
+import './js/telemetry.js';
 import { projectDetails } from './js/data/projects-data.js';
 import { initNavbar, initSmoothScroll } from './js/modules/navigation.js';
 import { initSkillsFilter } from './js/modules/skills-filter.js';
