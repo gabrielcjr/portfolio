@@ -32,7 +32,7 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: var(--gradient-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +40,9 @@
   font-weight: 800;
   font-size: 1.125rem;
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 15px var(--border-glow);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-normal);
 }
 
 .brand-info {

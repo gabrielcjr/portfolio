@@ -67,8 +67,9 @@ body {
   transform: translateX(-50%);
   width: 900px;
   height: 600px;
-  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.18) 0%, rgba(139, 92, 246, 0.08) 45%, transparent 70%);
+  background: var(--gradient-ambient-top);
   filter: blur(80px);
+  transition: background var(--transition-smooth);
 }
 
 .bg-ambient::after {
@@ -78,8 +79,9 @@ body {
   right: -100px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.1) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 70%);
+  background: var(--gradient-ambient-bottom);
   filter: blur(90px);
+  transition: background var(--transition-smooth);
 }
 
 .grid-overlay {
