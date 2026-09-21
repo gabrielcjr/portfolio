@@ -199,16 +199,16 @@ class MissionField(models.Model):
     },
 
     k8s_portfolio: {
-      title: "K3s Cloud-Native GitOps & Observability Platform",
-      subtitle: "Declarative Kubernetes continuous delivery with ArgoCD, Prometheus, Grafana 360, and Loki/Promtail",
-      badges: ["Kubernetes (K3s)", "ArgoCD", "Prometheus", "Grafana", "Loki", "Promtail", "GitOps", "Docker Hub CI"],
+      title: "K3s Cloud-Native GitOps & SigNoz Observability Platform",
+      subtitle: "Declarative Kubernetes continuous delivery with ArgoCD, OpenTelemetry, and ClickHouse-backed SigNoz APM",
+      badges: ["Kubernetes (K3s)", "ArgoCD", "SigNoz", "OpenTelemetry (OTel)", "ClickHouse", "GitOps", "Docker Hub CI"],
       githubUrl: "https://github.com/gabrielcjr/k8s_portfolio",
       liveUrl: "https://gabrielcjr.website",
       overview: `
         A high-availability production cloud-native infrastructure orchestrating Gabriel's complete project ecosystem 
         on a multi-tenant K3s Kubernetes cluster. Implements declarative GitOps continuous delivery with ArgoCD 
-        (automated syncing, self-healing, resource pruning), centralized multi-tenant log aggregation with Loki & Promtail, 
-        and real-time telemetry via Prometheus and a custom-engineered 'K3s Production Apps 360' Grafana dashboard.
+        (automated syncing, self-healing, resource pruning), unified APM observability with SigNoz (OTel Collector, ClickHouse-backed 
+        distributed tracing, live container metrics, and centralized log aggregation) with automated SSL ingress termination.
       `,
       challengesSolved: [
         {
@@ -216,12 +216,12 @@ class MissionField(models.Model):
           detail: "Configured ArgoCD Application CRDs managing all live environments (portfolio, amae, jobs, atsproof), automatically pulling immutable SHA-tagged images built via GitHub Actions and enforcing zero configuration drift."
         },
         {
-          title: "Custom 'K3s Production Apps 360' Telemetry (Prometheus & Grafana)",
-          detail: "Engineered a comprehensive 360-degree observability dashboard monitoring container CPU/RAM quotas, pod restart counters, HTTP ingress status, and node health in real-time."
+          title: "Unified SigNoz APM & OpenTelemetry Telemetry",
+          detail: "Deployed the SigNoz OpenTelemetry Collector daemonset streaming application distributed traces, host/pod metrics, and container logs directly into ClickHouse with instant multi-tenant flamegraphs."
         },
         {
-          title: "Centralized Multi-Tenant Log Streaming (Loki & Promtail)",
-          detail: "Deployed Promtail daemonsets to capture container stdout streams across all Kubernetes namespaces, feeding directly into Grafana Loki for unified query debugging without SSH container access."
+          title: "Centralized Multi-Tenant OTel Log Aggregation",
+          detail: "Captures container stdout/stderr streams across all Kubernetes namespaces via OTel Collector, feeding directly into SigNoz for unified query debugging and error triage without SSH container access."
         },
         {
           title: "Multi-Arch Parallel CI & Automated Docker Hub Tag Pruning",
@@ -246,8 +246,8 @@ class MissionField(models.Model):
                                 ┌────────────┴────────────┐
                                 ▼                         ▼
                    ┌─────────────────────────┐ ┌─────────────────────────┐
-                   │ Prometheus Metrics      │ │ Promtail ➔ Loki Logs    │
-                   │ Grafana 360 Dashboard   │ │ Centralized Aggregation │
+                   │ SigNoz OTel Collector   │ │ ClickHouse Storage DB   │
+                   │ (Port 4317/4318)        │ │ Traces, Logs & Metrics  │
                    └─────────────────────────┘ └─────────────────────────┘
       `,
       codeSnippet: `# ArgoCD GitOps Declarative Application Manifest (k8s_portfolio)
@@ -273,6 +273,75 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true`
+    },
+
+    edgeshield: {
+      title: "EdgeShield — Distributed API Gateway & Pure-Python Rate Limiter",
+      subtitle: "High-concurrency async reverse proxy & distributed rate limiter with Circuit Breaker and native SigNoz telemetry",
+      badges: ["Python 3.12", "FastAPI", "Redis Pipelines", "Circuit Breaker", "OpenTelemetry (OTel)", "SigNoz", "K3s GitOps", "SDD & ADR"],
+      githubUrl: "https://github.com/gabrielcjr/edgeshield",
+      liveUrl: "https://gabrielcjr.website",
+      overview: `
+        EdgeShield is a high-performance distributed API Gateway and traffic shaping service engineered in Pure Python 3.12 
+        (FastAPI, AsyncIO, HTTPX) and atomic Redis pipelines. Designed to guard microservices in multi-tenant Kubernetes 
+        clusters against noisy neighbors and brute-force traffic spikes, it features a dual-tier architecture with an in-memory 
+        Circuit Breaker fallback and native OpenTelemetry telemetry streaming directly into SigNoz.
+      `,
+      challengesSolved: [
+        {
+          title: "Atomic Sliding Window Log in Pure Python (Zero Lua)",
+          detail: "Eliminates check-then-act race conditions across horizontal replicas using atomic single-transaction Redis Sorted Set pipelines with monotonic ZRANK evaluation, guaranteeing strict concurrency safety under heavy load."
+        },
+        {
+          title: "Dual-Tier In-Memory Circuit Breaker Fallback (ADR 0002)",
+          detail: "Protects against cascading Redis failures by fast-failing to an in-memory bounded sliding window limiter when Redis connection errors or timeouts occur, maintaining 100% gateway uptime without unconstrained upstream flooding."
+        },
+        {
+          title: "Native SigNoz APM & OpenTelemetry Trace Propagation (ADR 0003)",
+          detail: "Exports custom OTLP metrics (edgeshield_requests_total, edgeshield_ratelimit_blocked_total, edgeshield_redis_latency_seconds) to SigNoz Collector (:4318) and injects W3C TraceContext headers upstream for end-to-end distributed flamegraphs."
+        },
+        {
+          title: "RFC 7807 Problem Details & Tier Policy Matrix",
+          detail: "Enforces granular authorization tiers (Anonymous, Free, Pro, Enterprise) identified via IP or API Keys, emitting standardized RFC 7807 problem details with Retry-After and X-RateLimit-* headers on quota exhaustion."
+        }
+      ],
+      architectureFlow: `
+┌─────────────────────────┐     ┌────────────────────────────┐     ┌───────────────────────────┐
+│ Client Traffic (IP/Key) │ ──> │ Policy & Tier Evaluator    │ ──> │ Atomic Redis Pipeline     │
+│ Headers & W3C Traces    │     │ (Anonymous, Pro, Ent)      │     │ (ZSET + ZRANK Pure Python)│
+└─────────────────────────┘     └────────────────────────────┘     └─────────────┬─────────────┘
+                                                                                 │
+┌─────────────────────────┐     ┌────────────────────────────┐                   ▼
+│ SigNoz OTel Collector   │ <── │ HTTPX Reverse Proxy        │ <── ┌───────────────────────────┐
+│ (:4318 ClickHouse APM)  │     │ Streaming & TraceContext   │     │ Allowed (200) / 429 RFC   │
+└─────────────────────────┘     └────────────────────────────┘     │ [Fallback Circuit Breaker]│
+                                                                   └───────────────────────────┘
+      `,
+      codeSnippet: `# Pure Python Atomic Sliding Window via Redis Pipelines (EdgeShield)
+async def _check_sliding_window(self, key: str, policy: TierPolicy, cost: int) -> RateLimitResult:
+    redis_key = f"edgeshield:sw:{key}"
+    now_ms = time.time() * 1000.0
+    window_ms = policy.window_seconds * 1000.0
+    member = f"{now_ms}:{uuid.uuid4().hex}"
+
+    # Atomic single-transaction pipeline: clean expired, record request, get rank & oldest
+    async with self.redis.pipeline(transaction=True) as pipe:
+        pipe.zremrangebyscore(redis_key, 0, now_ms - window_ms)
+        pipe.zadd(redis_key, {member: now_ms})
+        pipe.zrank(redis_key, member)
+        pipe.pexpire(redis_key, int(window_ms))
+        pipe.zrange(redis_key, 0, 0, withscores=True)
+        res = await pipe.execute()
+
+    _cleaned, _added, rank, _pexpire, oldest_entries = res
+
+    # Check monotonic rank against policy limit
+    if rank is not None and rank < policy.limit:
+        return RateLimitResult(allowed=True, limit=policy.limit, remaining=policy.limit - (rank + 1), reset_after_seconds=0.0, tier=policy.name)
+    else:
+        await self.redis.zrem(redis_key, member) # Rollback over-quota speculative entry
+        retry_after = (float(oldest_entries[0][1]) + window_ms - now_ms) / 1000.0 if oldest_entries else policy.window_seconds
+        return RateLimitResult(allowed=False, limit=policy.limit, remaining=0, reset_after_seconds=max(0.001, retry_after), tier=policy.name)`
     }
   };
 
