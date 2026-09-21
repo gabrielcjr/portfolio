@@ -48,21 +48,38 @@ export function restorePageScroll() {
   }
 }
 
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export function openProjectModal(projectId) {
-  const data = projectDetails[projectId];
-  if (!data) return;
+  const data = projectDetails[projectId] || (typeof window !== 'undefined' && window.projectDetails && window.projectDetails[projectId]);
+  if (!data) {
+    console.warn(`[Modal] Project details for "${projectId}" not found in projectDetails dictionary. Available:`, Object.keys(projectDetails));
+    return;
+  }
 
   const titleElem = document.getElementById('modal-project-title');
   const bodyElem = document.getElementById('modal-project-body');
+  if (!titleElem || !bodyElem) {
+    console.warn('[Modal] Modal DOM elements (#modal-project-title or #modal-project-body) not found in page.');
+    return;
+  }
 
   titleElem.textContent = data.title;
 
-  const badgesHtml = data.badges.map(b => `<span class="tag-badge highlight">${b}</span>`).join(' ');
+  const badgesHtml = data.badges.map(b => `<span class="tag-badge highlight">${escapeHtml(b)}</span>`).join(' ');
 
   const challengesHtml = data.challengesSolved.map(c => `
     <div style="margin-bottom: 0.85rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid rgba(255,255,255,0.06);">
-      <strong style="color: #818cf8; display: block; margin-bottom: 0.25rem;">${c.title}</strong>
-      <span style="font-size: 0.875rem; color: #94a3b8; line-height: 1.5;">${c.detail}</span>
+      <strong style="color: #818cf8; display: block; margin-bottom: 0.25rem;">${escapeHtml(c.title)}</strong>
+      <span style="font-size: 0.875rem; color: #94a3b8; line-height: 1.5;">${escapeHtml(c.detail)}</span>
     </div>
   `).join('');
 
@@ -93,7 +110,7 @@ export function openProjectModal(projectId) {
           </svg>
           <span>System Architecture & Data Pipeline</span>
         </h4>
-        <pre class="modal-code-block"><code>${data.architectureFlow.trim()}</code></pre>
+        <pre class="modal-code-block"><code>${escapeHtml(data.architectureFlow.trim())}</code></pre>
       </div>
 
       <div>
@@ -113,7 +130,7 @@ export function openProjectModal(projectId) {
           </svg>
           <span>Core Implementation Code Pattern</span>
         </h4>
-        <pre class="modal-code-block"><code>${data.codeSnippet}</code></pre>
+        <pre class="modal-code-block"><code>${escapeHtml(data.codeSnippet)}</code></pre>
       </div>
 
       <div style="display: flex; gap: 0.75rem; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;">
@@ -132,6 +149,10 @@ export function openProjectModal(projectId) {
   `;
 
   openModal('project-modal');
+  const container = document.querySelector('#project-modal .modal-container');
+  if (container) {
+    container.scrollTop = 0;
+  }
 }
 
 export function initModals() {

@@ -131,6 +131,10 @@ export async function build() {
     html = html.replace(s.placeholder, content);
   }
 
+  // Inject cache-busting query parameter for main assets
+  const cacheBust = `?v=${Date.now().toString(36)}`;
+  html = html.replace(/<!-- {{CACHE_BUST}} -->/g, cacheBust);
+
   const outPath = path.join(rootDir, 'index.html');
   fs.writeFileSync(outPath, html, 'utf8');
   console.log(`✔ Compiled index.html [Theme: '${activeTheme}', Switcher: ${showSwitcher}, Override: ${allowVisitorOverride}] (${html.length} bytes, ${html.split('\n').length} lines)`);
