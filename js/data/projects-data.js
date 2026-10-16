@@ -199,29 +199,29 @@ class MissionField(models.Model):
     },
 
     k8s_portfolio: {
-      title: "K3s Cloud-Native GitOps & SigNoz Observability Platform",
-      subtitle: "Declarative Kubernetes continuous delivery with ArgoCD, OpenTelemetry, and ClickHouse-backed SigNoz APM",
-      badges: ["Kubernetes (K3s)", "ArgoCD", "SigNoz", "OpenTelemetry (OTel)", "ClickHouse", "GitOps", "Docker Hub CI"],
+      title: "K3s Cloud-Native GitOps & Jaeger Observability Platform",
+      subtitle: "Declarative Kubernetes continuous delivery with ArgoCD, OpenTelemetry, and Jaeger Distributed Tracing",
+      badges: ["Kubernetes (K3s)", "ArgoCD", "Jaeger", "OpenTelemetry (OTel)", "GitOps", "Docker Hub CI"],
       githubUrl: "https://github.com/gabrielcjr/k8s_portfolio",
       liveUrl: "https://gabrielcjr.website",
       overview: `
         A high-availability production cloud-native infrastructure orchestrating Gabriel's complete project ecosystem 
         on a multi-tenant K3s Kubernetes cluster. Implements declarative GitOps continuous delivery with ArgoCD 
-        (automated syncing, self-healing, resource pruning), unified APM observability with SigNoz (OTel Collector, ClickHouse-backed 
-        distributed tracing, live container metrics, and centralized log aggregation) with automated SSL ingress termination.
+        (automated syncing, self-healing, resource pruning), unified distributed tracing with Jaeger (native OpenTelemetry, 
+        end-to-end request flamegraphs, and latency percentile tracking) with automated SSL ingress termination.
       `,
       challengesSolved: [
         {
           title: "Declarative GitOps Delivery & Self-Healing (ArgoCD)",
-          detail: "Configured ArgoCD Application CRDs managing all live environments (portfolio, amae, jobs, atsproof), automatically pulling immutable SHA-tagged images built via GitHub Actions and enforcing zero configuration drift."
+          detail: "Configured ArgoCD Application CRDs managing all live environments (portfolio, amae, jobs, atsproof, jaeger), automatically pulling immutable SHA-tagged images built via GitHub Actions and enforcing zero configuration drift."
         },
         {
-          title: "Unified SigNoz APM & OpenTelemetry Telemetry",
-          detail: "Deployed the SigNoz OpenTelemetry Collector daemonset streaming application distributed traces, host/pod metrics, and container logs directly into ClickHouse with instant multi-tenant flamegraphs."
+          title: "Unified Jaeger Distributed Tracing & OpenTelemetry",
+          detail: "Deployed Jaeger All-in-One natively in Kubernetes ingesting distributed traces and spans directly via OTLP gRPC/HTTP (:4317/:4318) for instantaneous multi-tenant flamegraphs."
         },
         {
-          title: "Centralized Multi-Tenant OTel Log Aggregation",
-          detail: "Captures container stdout/stderr streams across all Kubernetes namespaces via OTel Collector, feeding directly into SigNoz for unified query debugging and error triage without SSH container access."
+          title: "Centralized Multi-Tenant OTel Trace Propagation",
+          detail: "Propagates W3C TraceContext headers across all microservices (EdgeShield, Jobs, AMAE, ATS MatchProof) into Jaeger for unified query debugging and error triage without SSH container access."
         },
         {
           title: "Multi-Arch Parallel CI & Automated Docker Hub Tag Pruning",
@@ -243,12 +243,12 @@ class MissionField(models.Model):
 │ gabrielcjr.website     │      │ Multi-Tenant Namespaces │      │ ArgoCD GitOps Engine   │
 └────────────────────────┘      └────────────┬────────────┘      │ Auto-Sync & Self-Heal  │
                                              │                   └────────────────────────┘
-                                ┌────────────┴────────────┐
-                                ▼                         ▼
-                   ┌─────────────────────────┐ ┌─────────────────────────┐
-                   │ SigNoz OTel Collector   │ │ ClickHouse Storage DB   │
-                   │ (Port 4317/4318)        │ │ Traces, Logs & Metrics  │
-                   └─────────────────────────┘ └─────────────────────────┘
+                                             ▼
+                                ┌─────────────────────────┐
+                                │ Jaeger All-in-One       │
+                                │ OTLP :4317/:4318        │
+                                │ Distributed Flamegraphs │
+                                └─────────────────────────┘
       `,
       codeSnippet: `# ArgoCD GitOps Declarative Application Manifest (k8s_portfolio)
 apiVersion: argoproj.io/v1alpha1
@@ -277,15 +277,15 @@ spec:
 
     edgeshield: {
       title: "EdgeShield — Distributed API Gateway & Pure-Python Rate Limiter",
-      subtitle: "High-concurrency async reverse proxy & distributed rate limiter with Circuit Breaker and native SigNoz telemetry",
-      badges: ["Python 3.12", "FastAPI", "Redis Pipelines", "Circuit Breaker", "OpenTelemetry (OTel)", "SigNoz", "K3s GitOps", "SDD & ADR"],
+      subtitle: "High-concurrency async reverse proxy & distributed rate limiter with Circuit Breaker and native Jaeger telemetry",
+      badges: ["Python 3.12", "FastAPI", "Redis Pipelines", "Circuit Breaker", "OpenTelemetry (OTel)", "Jaeger", "K3s GitOps", "SDD & ADR"],
       githubUrl: "https://github.com/gabrielcjr/edgeshield",
       liveUrl: "https://gabrielcjr.website",
       overview: `
         EdgeShield is a high-performance distributed API Gateway and traffic shaping service engineered in Pure Python 3.12 
         (FastAPI, AsyncIO, HTTPX) and atomic Redis pipelines. Designed to guard microservices in multi-tenant Kubernetes 
         clusters against noisy neighbors and brute-force traffic spikes, it features a dual-tier architecture with an in-memory 
-        Circuit Breaker fallback and native OpenTelemetry telemetry streaming directly into SigNoz.
+        Circuit Breaker fallback and native OpenTelemetry telemetry streaming directly into Jaeger.
       `,
       challengesSolved: [
         {
@@ -297,8 +297,8 @@ spec:
           detail: "Protects against cascading Redis failures by fast-failing to an in-memory bounded sliding window limiter when Redis connection errors or timeouts occur, maintaining 100% gateway uptime without unconstrained upstream flooding."
         },
         {
-          title: "Native SigNoz APM & OpenTelemetry Trace Propagation (ADR 0003)",
-          detail: "Exports custom OTLP metrics (edgeshield_requests_total, edgeshield_ratelimit_blocked_total, edgeshield_redis_latency_seconds) to SigNoz Collector (:4318) and injects W3C TraceContext headers upstream for end-to-end distributed flamegraphs."
+          title: "Native Jaeger Tracing & OpenTelemetry Trace Propagation (ADR 0003)",
+          detail: "Exports custom OTLP metrics (edgeshield_requests_total, edgeshield_ratelimit_blocked_total, edgeshield_redis_latency_seconds) to Jaeger (:4318) and injects W3C TraceContext headers upstream for end-to-end distributed flamegraphs."
         },
         {
           title: "RFC 7807 Problem Details & Tier Policy Matrix",
@@ -312,8 +312,8 @@ spec:
 └─────────────────────────┘     └────────────────────────────┘     └─────────────┬─────────────┘
                                                                                  │
 ┌─────────────────────────┐     ┌────────────────────────────┐                   ▼
-│ SigNoz OTel Collector   │ <── │ HTTPX Reverse Proxy        │ <── ┌───────────────────────────┐
-│ (:4318 ClickHouse APM)  │     │ Streaming & TraceContext   │     │ Allowed (200) / 429 RFC   │
+│ Jaeger OTel Collector   │ <── │ HTTPX Reverse Proxy        │ <── ┌───────────────────────────┐
+│ (:4318 Distributed APM) │     │ Streaming & TraceContext   │     │ Allowed (200) / 429 RFC   │
 └─────────────────────────┘     └────────────────────────────┘     │ [Fallback Circuit Breaker]│
                                                                    └───────────────────────────┘
       `,
