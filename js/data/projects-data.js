@@ -342,6 +342,80 @@ async def _check_sliding_window(self, key: str, policy: TierPolicy, cost: int) -
         await self.redis.zrem(redis_key, member) # Rollback over-quota speculative entry
         retry_after = (float(oldest_entries[0][1]) + window_ms - now_ms) / 1000.0 if oldest_entries else policy.window_seconds
         return RateLimitResult(allowed=False, limit=policy.limit, remaining=0, reset_after_seconds=max(0.001, retry_after), tier=policy.name)`
+    },
+
+    sentinelmcp: {
+      title: "SentinelMCP — Autonomous Kubernetes SRE Agent & MCP Orchestrator",
+      subtitle: "Autonomous self-healing SRE agent powered by Model Context Protocol (MCP), multi-provider ReAct reasoning, and guarded runbooks",
+      badges: ["Python 3.12", "FastAPI", "Model Context Protocol (MCP)", "Kubernetes (K3s)", "Groq Cloud (Llama/Qwen)", "Google Gemini", "Jaeger APM", "ReAct Loop", "Autonomous SRE"],
+      githubUrl: "https://github.com/gabrielcjr/sentinelmcp",
+      liveUrl: "https://gabrielcjr.website",
+      overview: `
+        SentinelMCP is an autonomous Site Reliability Engineering (SRE) agent and Model Context Protocol (MCP) server 
+        engineered in Python 3.12 (FastAPI, AsyncIO, Pydantic) to provide closed-loop incident self-healing across Kubernetes workloads. 
+        It connects continuous observability signals from Jaeger APM and cluster metrics with multi-model ReAct reasoning 
+        (Groq Cloud, Google Gemini, and a deterministic offline heuristic engine) to diagnose microservice degradations, 
+        execute guarded cluster mutations (zero-downtime rolling restarts, replica scaling, circuit breaking), and autonomously 
+        synthesize executive post-mortem Root Cause Analysis (RCA) reports.
+      `,
+      challengesSolved: [
+        {
+          title: "Multi-Model ReAct SRE Loop & Zero-Cost Heuristic Fallback",
+          detail: "Orchestrates multi-turn ReAct reasoning across free-tier LLM providers (Groq Qwen/Llama and Google Gemini) with an automatic failover to a zero-cost Deterministic Runbook Engine when network outages or API rate limits occur."
+        },
+        {
+          title: "Blast-Radius Safety Guardrails & Rate-Limited Mutations",
+          detail: "Protects production clusters against cascade failures by enforcing strict rate limits (max 3 restarts/hour), target cooldown intervals (120s), replica scaling boundaries (1-10), and mandatory dry-run diff verification prior to mutation execution."
+        },
+        {
+          title: "Cluster-Wide Cross-Namespace K8s Discovery & GitOps Reconciliation",
+          detail: "Implements cluster-wide workload discovery via RBAC ClusterRoles to automatically resolve services across isolated namespaces ('portfolio', 'edgeshield', 'default'), with GitOps drift awareness (ArgoCD) selecting rolling restarts over direct replica scaling."
+        },
+        {
+          title: "Native Model Context Protocol (MCP) & Interactive CLI Runner",
+          detail: "Exposes diagnostic and remediation tools via standard MCP JSON-RPC protocol for agentic orchestration, paired with an interactive Rich CLI runner for human-in-the-loop incident response and live mutation execution."
+        }
+      ],
+      architectureFlow: `
+┌─────────────────────────┐     ┌────────────────────────────┐     ┌───────────────────────────┐
+│ Jaeger APM / Prom Alerts│ ──> │ FastAPI Webhook Ingestion  │ ──> │ ReAct SRE Orchestrator    │
+│ (Latency, 5xx Spikes)   │     │ & Incident Registry        │     │ (Groq / Gemini / Fallback)│
+└─────────────────────────┘     └────────────────────────────┘     └─────────────┬─────────────┘
+                                                                                 │
+┌─────────────────────────┐     ┌────────────────────────────┐                   ▼
+│ Markdown Post-Mortem RCA│ <── │ K3s Cluster Mutation       │ <── ┌───────────────────────────┐
+│ Executive Report Synthes│     │ (Rollout Restart / Scale)  │     │ Guardrail Safety Barrier  │
+└─────────────────────────┘     └────────────────────────────┘     │ Max Restarts, Cooldown,   │
+                                                                   │ Blast-Radius Dry-Run Diff │
+                                                                   └───────────────────────────┘
+      `,
+      codeSnippet: `# SentinelMCP Autonomous ReAct Remediation Tool Invocation
+async def execute_remediation_runbook(
+    incident_id: str,
+    action_type: str,
+    target: str,
+    params: Optional[Dict[str, Any]] = None,
+    dry_run: Optional[bool] = None,
+) -> Dict[str, Any]:
+    is_dry_run = dry_run if dry_run is not None else settings.sentinel_dry_run
+    
+    # Enforce safety guardrails (rate limits, cooldowns, scaling bounds)
+    default_guardrails.validate_action(
+        incident_id=incident_id,
+        action_type=action_type,
+        target=target,
+        params=params or {},
+        dry_run=is_dry_run,
+    )
+    
+    # Resolve target across Kubernetes cluster namespaces
+    namespace, dep_name = await resolve_deployment_namespace(target)
+    
+    if action_type == "restart":
+        diff = f"deployment.apps/{dep_name} restarted (remediation for {incident_id})"
+        if not is_dry_run:
+            await k8s_client.restart_deployment(name=dep_name, namespace=namespace)
+        return RemediationResult(success=True, action_type="restart", dry_run=is_dry_run, diff=diff).model_dump()`
     }
   };
 

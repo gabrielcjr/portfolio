@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=mvbd02wt">
+  <link rel="stylesheet" href="styles.css?v=mvis5v02">
 
   <!-- Injected Theme Configuration & Immediate Initialization -->
     <script id="portfolio-theme-runtime">
@@ -420,7 +420,7 @@
           <span class="section-tag">Engineering Showcase</span>
           <h2 class="section-title">Production-Grade Projects & Systems</h2>
           <p class="section-subtitle">
-            Explore 5 featured systems demonstrating cloud-native GitOps, low-latency traffic shaping, high-concurrency ingestion, dual-engine AI simulation, and resilient full-stack architectures.
+            Explore 6 featured systems demonstrating autonomous AI-driven SRE operations, cloud-native GitOps, low-latency traffic shaping, high-concurrency ingestion, dual-engine AI simulation, and resilient full-stack architectures.
           </p>
         </div>
 
@@ -1005,6 +1005,121 @@
                     <div>
                       <div class="arch-step-text">Streaming Proxy & Jaeger Telemetry</div>
                       <div class="arch-step-sub">W3C traceparent injection & OTLP metric export</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: SentinelMCP (Autonomous Kubernetes SRE Agent & MCP Orchestrator) -->
+          <article class="project-card featured-live" id="project-sentinelmcp">
+            <div class="project-card-content">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-category">Autonomous SRE & Model Context Protocol (MCP)</span>
+                  <div class="live-indicator">
+                    <span class="status-dot"></span>
+                    <span>Live in Cluster</span>
+                  </div>
+                </div>
+                <h3 class="project-title">SentinelMCP — Autonomous Kubernetes SRE Agent & MCP Orchestrator</h3>
+                <p class="project-summary">
+                  An autonomous Site Reliability Engineering (SRE) agent and Model Context Protocol (MCP) server engineered in Python 3.12 (FastAPI, AsyncIO) for Kubernetes self-healing. Integrates multi-model ReAct reasoning (Groq Cloud, Google Gemini) with automatic failover to a deterministic heuristic engine. Intercepts telemetry anomalies, diagnoses live pod lifecycle states and container crash logs, executes guarded zero-downtime rolling restarts and horizontal scaling, and generates post-mortem Root Cause Analysis (RCA) reports.
+                </p>
+
+                <ul class="project-bullets">
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>ReAct SRE Diagnostic & Triage Loop:</strong> Multi-step autonomous investigation querying Jaeger APM error rates, diagnosing Kubernetes pod exit codes (OOMKilled/CrashLoop), and inspecting container stdout/stderr logs.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Blast-Radius Safety Guardrails & Cooldowns:</strong> Protects production workloads with strict hourly restart limits (max 3/hr), 120s cooldown periods, replica boundaries (1-10), and mandatory dry-run diff verification.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Multi-Provider LLM & Zero-Cost Heuristic Fallback:</strong> Hybrid AI orchestration supporting Groq (Qwen/Llama) and Gemini with seamless cascade to a rule-based Deterministic Runbook Engine when offline or rate-limited.</span>
+                  </li>
+                  <li class="project-bullet">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span><strong>Cross-Namespace GitOps Awareness & MCP Protocol:</strong> Cluster-wide namespace resolution via RBAC ClusterRoles with ArgoCD GitOps drift awareness, exposing all diagnostics and runbooks via standard MCP JSON-RPC tools.</span>
+                  </li>
+                </ul>
+
+                <div class="project-tags">
+                  <span class="tag-badge highlight">Python 3.12</span>
+                  <span class="tag-badge highlight">FastAPI</span>
+                  <span class="tag-badge highlight">Model Context Protocol (MCP)</span>
+                  <span class="tag-badge">Kubernetes (K3s)</span>
+                  <span class="tag-badge highlight">Groq / Gemini AI</span>
+                  <span class="tag-badge">Jaeger APM</span>
+                  <span class="tag-badge">Autonomous SRE</span>
+                  <span class="tag-badge">GitOps (ArgoCD)</span>
+                </div>
+              </div>
+
+              <div class="project-footer-actions">
+                <div class="project-action-buttons">
+                  <button type="button" class="btn btn-primary btn-sm" onclick="window.app.openProjectModal('sentinelmcp')">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    <span>Architecture Deep Dive</span>
+                  </button>
+                  <a href="https://github.com/gabrielcjr/sentinelmcp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <span>GitHub Repository</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture Preview -->
+            <div class="project-card-visual">
+              <div class="arch-preview-box">
+                <div class="arch-preview-header">
+                  <span>AUTONOMOUS SRE HEALING PIPELINE</span>
+                  <span class="tag-badge highlight">MCP Agent</span>
+                </div>
+                <div class="arch-step-list">
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">1</span>
+                    <div>
+                      <div class="arch-step-text">Alert Ingestion & Trace Profiling</div>
+                      <div class="arch-step-sub">Jaeger APM error rates & latency evaluation</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">2</span>
+                    <div>
+                      <div class="arch-step-text">ReAct Diagnostics & Triage</div>
+                      <div class="arch-step-sub">K8s pod lifecycle, crash dumps & exit codes</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">3</span>
+                    <div>
+                      <div class="arch-step-text">Guarded Runbook Remediation</div>
+                      <div class="arch-step-sub">Zero-downtime rolling restart / scaling with dry-run diff</div>
+                    </div>
+                  </div>
+                  <div class="arch-step-item">
+                    <span class="arch-step-num">4</span>
+                    <div>
+                      <div class="arch-step-text">Post-Mortem & RCA Generation</div>
+                      <div class="arch-step-sub">Autonomous Markdown root-cause analysis report</div>
                     </div>
                   </div>
                 </div>
@@ -1839,6 +1954,6 @@
   <!-- Script -->
 
 
-  <script type="module" src="app.js?v=mvbd02wt"></script>
+  <script type="module" src="app.js?v=mvis5v02"></script>
 </body>
 </html>
