@@ -2,14 +2,14 @@
    Hero Section
    ========================================================================== */
 .hero-section {
-  padding: 4.5rem 0 3.5rem;
+  padding: 5rem 0 4rem;
   position: relative;
 }
 
 .hero-wrapper {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 3.5rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -27,40 +27,43 @@
   margin-bottom: 1.25rem;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-glow);
-  color: var(--text-accent);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  transition: all var(--transition-normal);
-}
-
 .hero-title {
-  font-size: 3.125rem;
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.35rem;
   letter-spacing: -0.03em;
+  max-width: 20ch;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.0625rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 2rem;
-  max-width: 620px;
+  margin-bottom: 1.5rem;
+  max-width: 580px;
 }
 
 .hero-highlight {
   color: var(--text-primary);
   font-weight: 600;
+}
+
+.hero-focus {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-focus li {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
 }
 
 .hero-actions {
@@ -81,8 +84,8 @@
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,34 +95,35 @@
 }
 
 .social-link:hover {
-  color: #ffffff;
-  border-color: var(--text-accent);
-  background: var(--border-glow);
+  color: var(--text-primary);
+  border-color: var(--accent);
+  background: var(--accent-soft);
   transform: translateY(-2px);
 }
 
 /* Hero Terminal Card */
 .hero-visual {
   position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
 }
 
 .terminal-card {
-  background: rgba(11, 15, 25, 0.9);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
 
 .terminal-header {
-  background: rgba(17, 24, 39, 0.95);
+  background: var(--bg-elevated);
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border);
 }
 
 .terminal-dots {
@@ -172,51 +176,53 @@
 }
 
 .code-keyword {
-  color: #f43f5e;
+  color: var(--syntax-keyword);
   font-weight: 600;
 }
 
 .code-func {
-  color: var(--text-accent);
+  color: var(--syntax-func);
 }
 
 .code-str {
-  color: #34d399;
+  color: var(--syntax-string);
 }
 
 .code-prop {
-  color: #38bdf8;
+  color: var(--syntax-prop);
 }
 
 .code-num {
-  color: #fbbf24;
+  color: var(--syntax-number);
 }
 
 .code-comment {
-  color: #64748b;
+  color: var(--syntax-comment);
   font-style: italic;
 }
 
 .terminal-highlight-box {
   margin-top: 1rem;
   padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-glow);
+  background: var(--bg-subtle);
+  border: 1px solid var(--accent-border);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .terminal-badge {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-accent);
+  color: var(--accent);
 }
 
 .terminal-status {
   font-size: 0.75rem;
-  color: var(--text-emerald);
+  color: var(--success);
   display: flex;
   align-items: center;
   gap: 0.35rem;

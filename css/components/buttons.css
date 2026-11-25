@@ -18,38 +18,37 @@
 }
 
 .btn-primary {
-  background: var(--gradient-primary);
-  color: #ffffff;
-  box-shadow: 0 4px 18px var(--border-glow);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  box-shadow: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px var(--shadow-glow);
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-accent);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--border-medium);
+  background: var(--bg-subtle);
+  border-color: var(--border-strong);
   color: var(--text-primary);
-  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--text-accent);
+  background: var(--bg-subtle-hover);
+  border-color: var(--accent);
   transform: translateY(-2px);
 }
 
 .btn-emerald {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: var(--border-emerald);
-  color: var(--text-emerald);
+  background: var(--success-soft);
+  border-color: var(--success-border);
+  color: var(--success);
 }
 
 .btn-emerald:hover {
-  background: rgba(16, 185, 129, 0.25);
-  box-shadow: var(--shadow-emerald-glow);
+  background: var(--success-soft-hover);
   transform: translateY(-2px);
 }
 
@@ -65,19 +64,19 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.4rem 1rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--success-soft);
+  border: 1px solid var(--success-border);
   border-radius: 9999px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #34d399;
+  color: var(--success);
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #10b981;
+  background-color: var(--success);
   position: relative;
 }
 
@@ -86,7 +85,7 @@
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background-color: #10b981;
+  background-color: var(--success);
   opacity: 0.6;
   animation: pulse-ring 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
 }

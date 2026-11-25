@@ -25,8 +25,8 @@ body {
 }
 
 ::selection {
-  background-color: var(--accent-primary);
-  color: #ffffff;
+  background-color: var(--accent);
+  color: var(--text-on-accent);
 }
 
 /* Scrollbar */
@@ -39,21 +39,21 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f2937;
+  background: var(--graphite-800);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: var(--graphite-600);
 }
 
-/* Background Animated Grid & Glow Effects */
+/* Background Ambient Glow Effect (Hero-only) */
 .bg-ambient {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 900px;
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
@@ -72,30 +72,6 @@ body {
   transition: background var(--transition-smooth);
 }
 
-.bg-ambient::after {
-  content: '';
-  position: absolute;
-  bottom: 10%;
-  right: -100px;
-  width: 600px;
-  height: 600px;
-  background: var(--gradient-ambient-bottom);
-  filter: blur(90px);
-  transition: background var(--transition-smooth);
-}
-
-.grid-overlay {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, transparent 75%);
-  pointer-events: none;
-  z-index: -1;
-}
-
 /* Layout Container */
 .container {
   width: 100%;
@@ -104,6 +80,28 @@ body {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+/* Utility Classes */
+.flex-1 {
+  flex: 1;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 /* Typography Utilities */
@@ -124,62 +122,64 @@ h6 {
   font-family: var(--font-mono);
 }
 
-.gradient-text {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+.gradient-text,
+.text-accent {
+  color: var(--accent);
 }
 
-.gradient-text-cyan {
-  background: var(--gradient-cyan);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.gradient-text-emerald {
-  background: var(--gradient-emerald);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-/* Section Header Styles */
+/* Section System */
 .section {
-  padding: 5.5rem 0;
+  padding: 6rem 0;
   position: relative;
 }
 
+.section--compact {
+  padding: 3rem 0;
+}
+
+.section--alt {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
 .section-header {
+  text-align: left;
+  max-width: 720px;
+  margin: 0 0 3rem;
+}
+
+.section-header--center {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 3rem;
 }
 
 .section-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
-  background: rgba(99, 102, 241, 0.1);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  border-radius: 9999px;
+  gap: 0.6rem;
+  background: none;
+  border: 0;
+  padding: 0;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--text-accent);
+  color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.section-tag::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
 }
 
 .section-title {
-  font-size: 2.25rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.875rem, 3vw, 2.5rem);
+  margin-bottom: 0.75rem;
 }
 
 .section-subtitle {

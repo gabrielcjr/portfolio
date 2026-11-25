@@ -3,7 +3,7 @@
    ========================================================================== */
 .skills-controls {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.65rem;
   margin-bottom: 2.5rem;
@@ -12,8 +12,8 @@
 .filter-btn {
   padding: 0.5rem 1.15rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-strong);
   color: var(--text-secondary);
   font-family: var(--font-sans);
   font-size: 0.875rem;
@@ -24,14 +24,14 @@
 
 .filter-btn:hover {
   color: var(--text-primary);
-  border-color: var(--text-accent);
+  border-color: var(--accent);
 }
 
 .filter-btn.active {
-  background: var(--gradient-primary);
-  color: #ffffff;
+  background: var(--accent);
+  color: var(--text-on-accent);
   border-color: transparent;
-  box-shadow: 0 4px 15px var(--border-glow);
+  box-shadow: none;
 }
 
 .skills-grid {
@@ -41,17 +41,15 @@
 }
 
 .skill-category-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: all var(--transition-normal);
 }
 
 .skill-category-card:hover {
-  border-color: var(--border-glow);
+  border-color: var(--accent-border);
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
@@ -66,15 +64,15 @@
   gap: 0.75rem;
   margin-bottom: 1.25rem;
   padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border);
 }
 
 .skill-category-icon {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-md);
-  background: rgba(99, 102, 241, 0.12);
-  color: var(--text-accent);
+  background: var(--accent-soft);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,8 +95,8 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.45rem 0.8rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
@@ -107,67 +105,32 @@
 }
 
 .skill-chip:hover {
-  background: rgba(99, 102, 241, 0.15);
-  border-color: rgba(99, 102, 241, 0.35);
-  color: #ffffff;
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--text-primary);
   transform: translateY(-1px);
 }
 
-.skill-chip.featured-fastapi {
-  background: rgba(6, 182, 212, 0.12);
-  border-color: rgba(6, 182, 212, 0.35);
-  color: #22d3ee;
-  font-weight: 700;
-}
-
-.skill-chip.featured-fastapi:hover {
-  background: rgba(6, 182, 212, 0.25);
-  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
-}
-
-.skill-chip.featured-agentic {
-  background: rgba(168, 85, 247, 0.12);
-  border-color: rgba(168, 85, 247, 0.4);
-  color: #c084fc;
-  font-weight: 700;
-}
-
-.skill-chip.featured-agentic:hover {
-  background: rgba(168, 85, 247, 0.25);
-  box-shadow: 0 0 16px rgba(168, 85, 247, 0.4);
-  border-color: #c084fc;
-}
-
+.skill-chip.featured-fastapi,
+.skill-chip.featured-agentic,
 .skill-chip.featured-sdd {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.4);
-  color: #34d399;
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent);
   font-weight: 700;
 }
 
+.skill-chip.featured-fastapi:hover,
+.skill-chip.featured-agentic:hover,
 .skill-chip.featured-sdd:hover {
-  background: rgba(16, 185, 129, 0.25);
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
-  border-color: #34d399;
+  background: var(--accent-soft-hover);
+  border-color: var(--accent-border);
+  color: var(--accent);
 }
 
 .skill-chip-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent-primary);
-}
-
-.skill-chip.featured-fastapi .skill-chip-dot {
-  background: #06b6d4;
-}
-
-.skill-chip.featured-agentic .skill-chip-dot {
-  background: #c084fc;
-  box-shadow: 0 0 6px #c084fc;
-}
-
-.skill-chip.featured-sdd .skill-chip-dot {
-  background: #34d399;
-  box-shadow: 0 0 6px #34d399;
+  background: var(--accent);
 }

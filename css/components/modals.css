@@ -4,7 +4,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(3, 7, 18, 0.85);
+  background: var(--bg-overlay);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
@@ -29,14 +29,14 @@ body.modal-open {
 }
 
 .modal-container {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-xl);
   max-width: 850px;
   width: 100%;
   max-height: 88vh;
   overflow-y: auto;
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: var(--shadow-lg);
   transform: translateY(20px) scale(0.98);
   transition: transform var(--transition-smooth);
   position: relative;
@@ -49,14 +49,21 @@ body.modal-open {
 .modal-header {
   position: sticky;
   top: 0;
-  background: rgba(11, 15, 25, 0.95);
+  background: var(--bg-surface);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 1.25rem 2rem;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .modal-title {
@@ -66,7 +73,7 @@ body.modal-open {
 
 .modal-close-btn {
   background: transparent;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border);
   color: var(--text-secondary);
   width: 36px;
   height: 36px;
@@ -79,8 +86,8 @@ body.modal-open {
 }
 
 .modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: var(--bg-subtle-hover);
+  color: var(--text-primary);
 }
 
 .modal-body {
@@ -94,6 +101,20 @@ body.modal-open {
   gap: 1.75rem;
 }
 
+.modal-overview {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.modal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .modal-section-title {
   font-size: 1.1rem;
   font-weight: 700;
@@ -105,15 +126,44 @@ body.modal-open {
 }
 
 .modal-code-block {
-  background: #030712;
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: #e2e8f0;
+  color: var(--text-primary);
   overflow-x: auto;
   line-height: 1.6;
+}
+
+.challenge-card {
+  margin-bottom: 0.85rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.challenge-title {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--accent);
+}
+
+.challenge-detail {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.modal-footer-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
 }
 
 /* Toast Notifications */
@@ -121,15 +171,15 @@ body.modal-open {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--accent-emerald);
+  background: var(--bg-elevated);
+  border: 1px solid var(--success);
   border-radius: var(--radius-md);
   padding: 0.85rem 1.25rem;
-  color: #ffffff;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: var(--shadow-lg), var(--shadow-emerald-glow);
+  box-shadow: var(--shadow-lg);
   transform: translateY(100px);
   opacity: 0;
   transition: all var(--transition-smooth);
@@ -146,15 +196,15 @@ body.modal-open {
    Resume Formatted View (in Modal)
    ========================================================================== */
 .resume-paper {
-  background: rgba(3, 7, 18, 0.6);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
   font-size: 0.9rem;
 }
 
 .resume-header {
-  border-bottom: 2px solid var(--border-subtle);
+  border-bottom: 2px solid var(--border);
   padding-bottom: 1.25rem;
   margin-bottom: 1.5rem;
 }
@@ -175,7 +225,7 @@ body.modal-open {
 }
 
 .resume-links-row a {
-  color: var(--text-accent);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -186,12 +236,28 @@ body.modal-open {
 .resume-section-heading {
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--text-accent);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 0.35rem;
   margin-bottom: 0.85rem;
+}
+
+.resume-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.resume-list--loose {
+  gap: 0.5rem;
+}
+
+.resume-summary {
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 .resume-item {
@@ -222,4 +288,13 @@ body.modal-open {
 
 .resume-bullet-list li {
   margin-bottom: 0.35rem;
+}
+
+.resume-context {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.4rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
 }

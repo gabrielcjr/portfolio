@@ -15,12 +15,16 @@
   bottom: 0;
   left: 7px;
   width: 2px;
-  background: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, transparent 100%);
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 50%, transparent 100%);
 }
 
 .timeline-item {
   position: relative;
   margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
 .timeline-marker {
@@ -31,23 +35,20 @@
   height: 16px;
   border-radius: 50%;
   background: var(--bg-primary);
-  border: 3px solid var(--accent-primary);
-  box-shadow: 0 0 12px var(--accent-primary);
+  border: 3px solid var(--accent);
   z-index: 2;
 }
 
 .timeline-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: all var(--transition-normal);
 }
 
 .timeline-card:hover {
-  border-color: var(--border-glow);
+  border-color: var(--accent-border);
   box-shadow: var(--shadow-md);
 }
 
@@ -69,7 +70,7 @@
 .timeline-company {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-accent);
+  color: var(--accent);
 }
 
 .timeline-meta {
@@ -82,8 +83,8 @@
 }
 
 .timeline-context {
-  background: rgba(255, 255, 255, 0.02);
-  border-left: 3px solid var(--accent-primary);
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--accent);
   padding: 0.85rem 1rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.875rem;
@@ -110,7 +111,7 @@
 }
 
 .achievement-icon {
-  color: var(--text-emerald);
+  color: var(--success);
   flex-shrink: 0;
   margin-top: 3px;
 }

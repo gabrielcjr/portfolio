@@ -2,13 +2,11 @@
    Contact & Lead Conversion Section
    ========================================================================== */
 .contact-wrapper {
-  background: linear-gradient(180deg, rgba(17, 24, 39, 0.8) 0%, rgba(11, 15, 25, 0.95) 100%);
-  border: 1px solid var(--border-medium);
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-surface) 100%);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-xl);
   padding: 3.5rem;
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-lg);
 }
 
 .contact-header-center {
@@ -42,8 +40,8 @@
 }
 
 .contact-card-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   display: flex;
@@ -54,8 +52,8 @@
 }
 
 .contact-card-box:hover {
-  background: rgba(99, 102, 241, 0.06);
-  border-color: var(--border-glow);
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -70,8 +68,8 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: rgba(99, 102, 241, 0.15);
-  color: var(--text-accent);
+  background: var(--accent-soft);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,12 +96,12 @@
   align-items: center;
   gap: 0.75rem;
   padding-top: 0.85rem;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border);
 }
 
 .copy-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-strong);
   color: var(--text-secondary);
   padding: 0.5rem 0.85rem;
   border-radius: var(--radius-sm);
@@ -117,16 +115,16 @@
 }
 
 .copy-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-subtle-hover);
   color: var(--text-primary);
-  border-color: var(--text-accent);
+  border-color: var(--accent);
 }
 
 /* ==========================================================================
    Footer
    ========================================================================== */
 .footer {
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border);
   padding: 3rem 0 2.5rem;
   background: var(--bg-primary);
   color: var(--text-muted);
@@ -139,4 +137,16 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+
+.footer-tagline {
+  font-size: 0.78rem;
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
