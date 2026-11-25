@@ -5,7 +5,7 @@ export const projectDetails = {
     devats: {
       title: "DevATS — Multi-ATS Job Ingestion Platform & Real-Time Board",
       subtitle: "High-concurrency crawler & developer job search engine probing 600+ companies",
-      badges: ["NestJS", "PostgreSQL (GIN)", "Redis", "Prisma ORM", "React 19", "Tailwind CSS", "TypeScript", "SDD & ADR"],
+      badges: ["NestJS", "PostgreSQL (GIN)", "Redis", "Prisma ORM", "TypeScript", "SDD & ADR"],
       githubUrl: "https://github.com/gabrielcjr/jobs_nestjs_react",
       liveUrl: "https://findjobs.gabrielcjr.website",
       overview: `
@@ -42,7 +42,7 @@ export const projectDetails = {
 └─────────────────────────┘     └────────────────────────────┘     └─────────────┬─────────────┘
                                                                                  │
 ┌─────────────────────────┐     ┌────────────────────────────┐                   ▼
-│ React 19 Faceted UI     │ <── │ Redis Cache Layer (Tags)   │ <── ┌───────────────────────────┐
+│ Faceted Search API      │ <── │ Redis Cache Layer (Tags)   │ <── ┌───────────────────────────┐
 │ Master-Detail Dual Pane │     │ PostgreSQL (GIN Indexes)   │     │ isItJob Classifier Guard  │
 └─────────────────────────┘     └────────────────────────────┘     │ Ashby Salary Parser       │
                                                                    │ 45-Day Stale Pruning Cron │
@@ -57,7 +57,7 @@ export function isItJob(title: string, categories?: string[]): boolean {
   if (nonItExclusions.test(normalized)) return false;
 
   // Strict technical keywords requirement
-  const itPatterns = /\\b(software|developer|engineer|full[- ]?stack|backend|frontend|devops|sre|platform|data)\\b/i;
+  const itPatterns = /\\b(software|developer|engineer|backend|devops|sre|platform|data)\\b/i;
   return itPatterns.test(normalized);
 }
 
@@ -74,7 +74,7 @@ export class IngestionService {
     atsproof: {
       title: "ATS MatchProof — Dual-Engine Resume & Job Matcher",
       subtitle: "Dual-Engine AI resume simulation with zero-disk in-memory stream processing",
-      badges: ["FastAPI", "Python", "HTMX", "Tailwind CSS", "Dual-AI Engine", "In-Memory PDF (200KB)", "Bilingual"],
+      badges: ["FastAPI", "Python", "HTMX", "Dual-AI Engine", "In-Memory PDF (200KB)", "Bilingual"],
       githubUrl: "https://github.com/gabrielcjr/atsproof",
       liveUrl: "https://atsproof.website/",
       overview: `
@@ -89,7 +89,7 @@ export class IngestionService {
         },
         {
           title: "High-Throughput FastAPI + HTMX Stack",
-          detail: "Server-side rendered micro-fragments powered by HTMX provide an instant, single-page app feel with zero heavy client-side JavaScript bundling."
+          detail: "Server-side rendered HTML fragments powered by HTMX keep rendering and state on the server, with no JavaScript build pipeline."
         },
         {
           title: "Dual-AI Benchmarking Engine",
@@ -144,7 +144,7 @@ async def analyze_match(
     amae: {
       title: "AMAE — Missionary & Financial Ledger Operations Platform",
       subtitle: "Clean Architecture SSR platform connecting financial sponsors with field operations",
-      badges: ["Python", "Django", "PostgreSQL", "Redis", "HTMX 2.0", "Tailwind CSS 4", "Bilingual (EN/PT)", "Pytest"],
+      badges: ["Python", "Django", "PostgreSQL", "Redis", "HTMX 2.0", "Bilingual (EN/PT)", "Pytest"],
       githubUrl: "https://github.com/gabrielcjr/amae",
       liveUrl: "https://amae.gabrielcjr.website",
       overview: `
@@ -179,7 +179,7 @@ async def analyze_match(
             │                                 │                                  │
             ▼                                 ▼                                  ▼
 ┌─────────────────────────┐     ┌────────────────────────────┐     ┌───────────────────────────┐
-│ Bilingual i18n Engine   │     │ On-The-Fly PDF Generator   │ ──> │ HTMX 2.0 SSR UI Views     │
+│ Bilingual i18n Engine   │     │ On-The-Fly PDF Generator   │ ──> │ HTMX 2.0 SSR Views        │
 │ (EN Default / PT-BR)    │     │ Monthly Statement Exports  │     │ Geocoded Coordinate Maps  │
 └─────────────────────────┘     └────────────────────────────┘     └───────────────────────────┘
       `,

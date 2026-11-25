@@ -24,7 +24,7 @@
     <div class="modal-container">
       <div class="modal-header">
         <h3 class="modal-title">Gabriel Carneiro Jr. — Resume / CV</h3>
-        <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <div class="modal-actions">
           <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()">
             <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
@@ -53,13 +53,13 @@
           <!-- Skills -->
           <div class="resume-section">
             <h2 class="resume-section-heading">Skills</h2>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.35rem;">
+            <ul class="resume-list">
               <li><strong>Languages:</strong> Python, TypeScript, JavaScript, PHP</li>
-              <li><strong>Frameworks:</strong> Django, FastAPI, React, NestJs, Node.js, Symfony</li>
-              <li><strong>Databases & Caching:</strong> PostgreSQL (GIN), MySQL, Redis</li>
-              <li><strong>DevOps & GitOps:</strong> Kubernetes (K3s), ArgoCD, Docker, Jaeger Tracing, OpenTelemetry (OTel), GitHub Actions, CI/CD</li>
+              <li><strong>Frameworks:</strong> Django, FastAPI, NestJs, Node.js, Symfony</li>
+              <li><strong>Databases &amp; Caching:</strong> PostgreSQL (GIN), MySQL, Redis</li>
+              <li><strong>DevOps &amp; GitOps:</strong> Kubernetes (K3s), ArgoCD, Docker, Jaeger Tracing, OpenTelemetry (OTel), GitHub Actions, CI/CD</li>
               <li><strong>Cloud:</strong> AWS (EC2, Lambda), GCP (Compute Engine, GKE)</li>
-              <li><strong>AI & Agentic:</strong> Model Context Protocol (MCP), Multi-Agent Workflows, LangChain, AI Tooling</li>
+              <li><strong>AI &amp; Agentic:</strong> Model Context Protocol (MCP), Multi-Agent Workflows, LangChain, AI Tooling</li>
               <li><strong>Architecture:</strong> Spec-Driven Development (SDD), Architecture Decision Records (ADR), Cloud-Native GitOps, Microservices</li>
             </ul>
           </div>
@@ -67,7 +67,7 @@
           <!-- Summary -->
           <div class="resume-section">
             <h2 class="resume-section-heading">Summary</h2>
-            <p style="line-height: 1.6; color: var(--text-secondary);">
+            <p class="resume-summary">
               Software Engineer with 5+ years in tech, with the last 3+ focused on building and optimizing backend systems using Python, TypeScript and PHP. I have built microservices architectures, RESTful APIs, and event-driven systems, delivering measurable results like 15-20% performance gains and automating manual workflows. Writing clean, well-tested code is non-negotiable, practicing Spec-Driven Development (SDD) and Architecture Decision Records (ADR) to ensure backward compatibility and comprehensive test coverage. I am a hands-on problem solver who values business domain understanding as much as technical execution. My approach is intentional: I leverage Model Context Protocol (MCP) integrations and multi-agent AI workflows to accelerate development velocity while keeping core engineering fundamentals sharp, consistently collaborating with teams to deliver sustainable business value.
             </p>
           </div>
@@ -78,7 +78,7 @@
 
             <div class="resume-item">
               <div class="resume-item-top">
-                <span><strong>Full Cycle</strong> — Full Stack Developer</span>
+                <span><strong>Full Cycle</strong> — Backend Developer</span>
                 <span>Jul 2025 – Jul 2026 | São Paulo, Brazil</span>
               </div>
               <ul class="resume-bullet-list">
@@ -87,14 +87,14 @@
                 <li>Eliminated manual work 100% by automating challenge evaluation with a PHP/Symfony webhook integration to an AI-powered microservice.</li>
                 <li>Cut manual administrative effort by 90% with a PHP/Symfony API, automating the diploma credential lifecycle with comprehensive domain validation.</li>
               </ul>
-              <div style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem; padding-left: 1rem; border-left: 2px solid var(--border-subtle);">
+              <div class="resume-context">
                 <strong>Context:</strong> Full Cycle is a leading Brazilian software engineering company and developer-education platform, focused on microservices and distributed systems. As a backend engineer on the internal product team, I built internal tooling and automation to eliminate manual work across the platform — from reusable admin components that accelerated content setup, to feature-flag systems that controlled AI API costs, to event-driven integrations automating student-facing workflows like credential issuance and challenge evaluation.
               </div>
             </div>
 
             <div class="resume-item">
               <div class="resume-item-top">
-                <span><strong>Full Cycle</strong> — Full Stack Developer</span>
+                <span><strong>Full Cycle</strong> — Backend Developer</span>
                 <span>Jul 2024 – Jun 2025 | São Paulo, Brazil</span>
               </div>
               <ul class="resume-bullet-list">
@@ -103,7 +103,7 @@
                 <li>Decreased an endpoint's response time by 20x, fixing a pagination query bug in PHP/Symfony.</li>
                 <li>Cut infrastructure costs by eliminating an always-on worker pod, building a PHP/Symfony API that serves student-progress data on demand.</li>
               </ul>
-              <div style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem; padding-left: 1rem; border-left: 2px solid var(--border-subtle);">
+              <div class="resume-context">
                 <strong>Context:</strong> On the same team, I focused on performance and infrastructure reliability — upgrading and modernizing legacy Python/Django systems, optimizing database queries and CI/CD pipeline execution, and reducing infrastructure costs through more efficient service design.
               </div>
             </div>
@@ -119,7 +119,7 @@
                 <li>Cut manual sync-recovery effort 90% with a PHP/Symfony HubSpot sync-schedule manager, auto-listing failed payment syncs with one-click admin retries.</li>
                 <li>Reduced student news-feed query latency up to 80% by caching complex multi-join chapter-release queries with a custom parameter-based Doctrine (PHP/Symfony) result-caching layer.</li>
               </ul>
-              <div style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem; padding-left: 1rem; border-left: 2px solid var(--border-subtle);">
+              <div class="resume-context">
                 <strong>Context:</strong> Earlier role on the same internal product team, where I accumulated Support Analyst and Development responsibilities — delivering backend features across both the Python/Django and PHP/Symfony sides of the platform while handling support duties in parallel. Focused on CRM integrations, asynchronous processing, student lifecycle automation, and test infrastructure modernization.
               </div>
             </div>
@@ -129,7 +129,7 @@
                 <span><strong>Full Cycle</strong> — Software Analyst</span>
                 <span>Feb 2021 – May 2023 | São Paulo, Brazil</span>
               </div>
-              <div style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.4rem; padding-left: 1rem; border-left: 2px solid var(--border-subtle);">
+              <div class="resume-context">
                 <strong>Context:</strong> Technical role focused on the analysis, support, and troubleshooting of software projects, including code analysis, error identification, and implementation of fixes. Provided support to students in resolving issues related to software development and project execution, requiring practical knowledge of programming and the technologies used in the courses.
               </div>
             </div>
@@ -138,7 +138,7 @@
           <!-- Education -->
           <div class="resume-section">
             <h2 class="resume-section-heading">Education</h2>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
+            <ul class="resume-list resume-list--loose">
               <li><strong>Full Cycle:</strong> MBA in Software Engineering with AI (Computer Software Engineering) | Jul 2025 – Sep 2026</li>
               <li><strong>Full Cycle:</strong> MBA - Arquitetura Full Cycle (Computer Software Engineering) | Jan 2023 – Sep 2024</li>
               <li><strong>Ampli:</strong> Bachelor of Applied Science - BASc, Computer Software Engineering (May 2022 – May 2025)</li>
@@ -158,5 +158,3 @@
     </svg>
     <span id="toast-message">Copied to clipboard!</span>
   </div>
-
-  <!-- Script -->
