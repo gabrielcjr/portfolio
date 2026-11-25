@@ -21,7 +21,6 @@ import {
   handleContactSubmit,
   initContact
 } from './js/modules/contact.js';
-import { initTheme, setTheme, THEMES } from './js/modules/theme.js';
 
 // Application Controller
 const app = {
@@ -39,12 +38,8 @@ const app = {
   showToast,
   handleContactSubmit,
   initContact,
-  initTheme,
-  setTheme,
-  THEMES,
 
   init: function () {
-    this.initTheme();
     this.initNavbar();
     this.initSkillsFilter();
     this.initModals();
